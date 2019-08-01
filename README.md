@@ -16,7 +16,7 @@ This implementation supports the following ILP features:
 * **Balance Tracking**: [Redis](https://redis.io) is used to durably track balance updates in a high-performance manner.
 * **Persistent Data Storage**: Account and other data can be stored using Postgres, MySQL, Oracle, MSSQL, and more.
 
-To learn more about how this implementation is designed, see [Connector Design](overview/connector-design.md).
+To learn more about how this implementation is designed, see [Connector Design](overview/architecture-design.md).
 
 To learn more about how to contribute to this project, [read more here](contributing/development.md).
 

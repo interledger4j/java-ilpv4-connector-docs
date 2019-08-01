@@ -1,4 +1,4 @@
-# Connector Architecture & Design
+# Architecture & Design
 
 This page details the architecture, design, and feature-set of this ILPv4 Connector.
 

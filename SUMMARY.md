@@ -4,9 +4,9 @@
 
 ## Overview
 
-* [Features](overview/features.md)
-* [Connector Architecture & Design](overview/connector-design.md)
-* [Connector Account Model](overview/ilpv4-connector-accounts.md)
+* [Terminology](overview/terminology.md)
+* [Architecture & Design](overview/architecture-design.md)
+* [Peering Account Model](overview/peering-account-model.md)
 
 ## Operating a Connector
 
