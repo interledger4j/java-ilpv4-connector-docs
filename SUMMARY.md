@@ -1,48 +1,35 @@
 # Table of contents
 
 * [Java ILPv4 Connector](README.md)
-* [Untitled](untitled.md)
-* [ILP Connector Persistence](ilpv4-connector-persistence/README.md)
-  * [README](ilpv4-connector-persistence/ddl.md)
-* [Documentation](documentation/README.md)
-  * [Connector Configuration](documentation/configuration.md)
-  * [Connector Development](documentation/development.md)
-* [ilpv4-connector-crypto](ilpv4-connector-crypto/README.md)
-  * [README](ilpv4-connector-crypto/connector-crypto-cli.md)
-* [ilpv4-connector-server](ilpv4-connector-server/README.md)
-  * [src](ilpv4-connector-server/src/README.md)
-    * [test](ilpv4-connector-server/src/test/README.md)
-      * [resources](ilpv4-connector-server/src/test/resources/README.md)
-        * [test-jwt.io](ilpv4-connector-server/src/test/resources/test-jwt.io.md)
-    * [main](ilpv4-connector-server/src/main/README.md)
-      * [resources](ilpv4-connector-server/src/main/resources/README.md)
-        * [crypto](ilpv4-connector-server/src/main/resources/crypto/README.md)
-          * [Connector Crypto](ilpv4-connector-server/src/main/resources/crypto/crypto.md)
-        * [Spring Boot with TLS](ilpv4-connector-server/src/main/resources/tls.md)
-* [Connector Account Model](ilpv4-connector-accounts.md)
+
+## Overview
+
+* [Features](overview/features.md)
+* [Connector Architecture & Design](overview/connector-design.md)
+* [Connector Account Model](overview/ilpv4-connector-accounts.md)
 
 ## Operating a Connector
 
-* [Untitled](operating-a-connector/untitled.md)
+* [Connector Configuration](operating-a-connector/configuration.md)
+* [README](operating-a-connector/ddl.md)
+* [ILP Connector Persistence](operating-a-connector/ilpv4-connector-persistence.md)
 
 ## API Reference
 
 * [Untitled](api-reference/untitled.md)
 
-## Design
-
-* [Connector Architecture & Design](design/connector-design.md)
-* [Untitled](design/untitled.md)
-
 ## Security Guide
 
-* [Untitled](security-guide/untitled.md)
+* [Connector Crypto](security-guide/crypto.md)
+* [test-jwt.io](security-guide/test-jwt.io.md)
+* [Generating Keys](security-guide/undefined.md)
+* [Spring Boot with TLS](security-guide/tls.md)
 
 ## Contributing
 
-* [Untitled](contributing/untitled.md)
+* [Connector Development](contributing/development.md)
 
-## Release Notes <a id="docs-releasenotes"></a>
+## Releases <a id="undefined"></a>
 
-* [Untitled](docs-releasenotes/untitled.md)
+* [Changelog](undefined/changelog.md)
 

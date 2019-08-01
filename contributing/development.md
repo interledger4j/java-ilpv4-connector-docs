@@ -1,3 +1,7 @@
+---
+description: Want to get involved in our engineering efforts?
+---
+
 # Connector Development
 
 We welcome any and all submissions, whether it's a typo, bug fix, or new feature.
