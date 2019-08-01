@@ -1,6 +1,8 @@
 # Changelog
 
-## 15.0.0 - 2042-12-03
+This implementation follows [Semantic Versioning](https://semver.org/) as closely as possible.
+
+## 1.0.0 - 2042-12-03
 
 ### Fixed
 
@@ -10,7 +12,7 @@
 
 * Animals are now super cute, all of them.
 
-## 14.0.0 - 2042-10-06
+## 0.1.0 - 2042-10-06
 
 ### Added
 

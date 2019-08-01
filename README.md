@@ -1,18 +1,22 @@
 ---
-description: A Java implementation of an Interledger v4 Connector.
+description: A Java implementation of an Interledger v4 Router.
 ---
 
-# Java ILPv4 Connector
+# Java ILPv4 Router
 
-## Architecture & Design
+This site contains documentation for the Java implementation of an Interledger Router \(source code  [here](https://github.com/sappenin/java-ilp-connector)\). This implementation supports _many_ incoming and outgoing connections, routing ILPv4 packets between its links. 
 
-To learn more about how this implementation is designed, see the [docs](https://github.com/sappenin/java-ilpv4-connector/tree/8b48e3aba253bd604564d78deecc445f2ab2d3dc/docs/README.md) folder, specifically [Connector Design](overview/connector-design.md).
+**WARNING:** _**This implementation is currently an "alpha" prototype and SHOULD NOT be used in a production deployment!**_
 
-To learn more about how to contribute to this project, see the [docs/development](contributing/development.md) folder.
+This implementation supports the following ILP features:
 
-**Disclaimer:** _**This implementation is currently a prototype and SHOULD NOT be used in a production deployment!**_
+* **ILDCP**: Interledger Dynamic Configuration Protocol as specified in [IL-RFC-0031](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md).
+* **ILP-over-HTTP**: Also known as BLAST \(**B**i**L**ateral **A**synchronous **S**eder **T**ransport\), defined in [IL-RFC-0030](https://github.com/interledger/rfcs/pull/504).
+* **Route Broadcast Protocol**: Defines how Connectors can exchange routing table updates as defined in [Route Broadcast Protocol](https://github.com/interledger/rfcs/pull/455).
+* **Balance Tracking**: [Redis](https://redis.io) is used to durably track balance updates in a high-performance manner.
+* **Persistent Data Storage**: Account and other data can be stored using Postgres, MySQL, Oracle, MSSQL, and more.
 
-To configure this connector, see [Configuration](operating-a-connector/configuration.md) in the docs folder.
+To learn more about how this implementation is designed, see [Connector Design](overview/connector-design.md).
 
-This implementation follows [Semantic Versioning](https://semver.org/) as closely as possible. To view releases, see [here](https://github.com/sappenin/java-ilpv4-connector/releases).
+To learn more about how to contribute to this project, [read more here](contributing/development.md).
 
