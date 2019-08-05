@@ -24,6 +24,11 @@ Note that peers are free to define this value in any way, but participants in an
 **Account Fractional Units**  
 A **fractional unit** represents some unit smaller than its corresponding standard unit, but with greater precision. Examples of fractional monetary units include one cent \($0.01 USD\), or 1 satoshi \(0.00000001 BTC\).
 
+**Account Scale**  
+An **asset scale** is the difference, in orders of magnitude, between a **standard unit** and a corresponding **fractional unit**. More formally, the asset scale is a non-negative integer \(0, 1, 2, …\) such that one **standard unit** equals `10^(-scale)` of a corresponding **fractional unit**. If the fractional unit equals the standard unit, then the asset scale is 0.
+
+For example, one "cent" represents an asset scale of 2 in the case of USD; 1 satoshi represents an asset scale of 8 in the case of Bitcoin; and 1 drop represents an asset scale of 6 in XRP.
+
 **Account Balance**  
 The total debt position between two peers represented in a particular fungible unit of account. Account balances can be tracked in arbitrary ways, although the two most common forms are bilateral \(both parties track an independent view of the balance\) or unilateral \(one party tracks the balance for both sides of the Account\).
 
