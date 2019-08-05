@@ -4,11 +4,17 @@ description: A Java implementation of an Interledger v4 Router.
 
 # Java ILPv4 Router
 
-This site contains documentation for the Java implementation of an Interledger Router \(source code  [here](https://github.com/sappenin/java-ilp-connector)\). This implementation supports _many_ incoming and outgoing connections, routing ILPv4 packets between its links. 
+This site contains documentation for the Java implementation of an Interledger Router.
 
-**WARNING:** _**This implementation is currently an "alpha" prototype and SHOULD NOT be used in a production deployment!**_
+**Github project source code**: [java-ilp-connector](https://github.com/sappenin/java-ilpv4-connector)  
+**Docs source code**: [java-ilp-connector-docs](https://github.com/sappenin/java-ilpv4-connector-docs)  
+**Documentation Website**: [https://java-router.ilpv4.dev](https://java-router.ilpv4.dev)
 
-This implementation supports the following ILP features:
+## Overview
+
+This implementation is a high-performance Interledger Router that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric.
+
+This implementation supports the following features:
 
 * **ILDCP**: Interledger Dynamic Configuration Protocol as specified in [IL-RFC-0031](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md).
 * **ILP-over-HTTP**: Also known as BLAST \(**B**i**L**ateral **A**synchronous **S**eder **T**ransport\), defined in [IL-RFC-0030](https://github.com/interledger/rfcs/pull/504).
@@ -18,5 +24,9 @@ This implementation supports the following ILP features:
 
 To learn more about how this implementation is designed, see [Connector Design](overview/architecture-design.md).
 
-To learn more about how to contribute to this project, [read more here](contributing/development.md).
+To contribute to this project read more in [Connector Development](contributing/development.md).
+
+## Disclaimer
+
+**WARNING:** _**This implementation is currently an "alpha" prototype and SHOULD NOT be used in a production deployment!**_
 
