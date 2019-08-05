@@ -33,3 +33,10 @@
 
 * [Changelog](undefined/changelog.md)
 
+## Examples
+
+* [Running the Connector](examples/running-the-connector.md)
+* [Peering: ILP-over-HTTP](examples/ilp-over-http-peering.md)
+* [Peering: BTP](examples/peering-btp.md)
+* [Settlement: XRP Ledger](examples/settlement-xrp-ledger.md)
+
