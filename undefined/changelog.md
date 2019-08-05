@@ -2,21 +2,15 @@
 
 This implementation follows [Semantic Versioning](https://semver.org/) as closely as possible.
 
-## 1.0.0 - 2042-12-03
+## 0.1.0 \(August 31st, 2019\)
 
 ### Fixed
 
-* Removed humans, they weren't doing fine with animals.
-
+* 
 ### Changed
 
-* Animals are now super cute, all of them.
-
-## 0.1.0 - 2042-10-06
-
+* 
 ### Added
 
-* Introduced animals into the world, we believe they're going to be a neat addition.
-
-
+* **Settlement Engine Support:** Enable the Connector to initiate and response to underlying ledger activity using the[ Settlement Engine RFC](https://github.com/interledger/rfcs/pull/536) specification.
 
