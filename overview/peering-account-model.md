@@ -14,7 +14,13 @@ This data is typically persisted to a persistent data-store, and loaded at vario
 
 ## Balance Tracking
 
-TODO
+This implementation utilizes [Bilateral Balance Tracking](terminology.md) to track balances for each account. In this balance tracking configuration, each account holder should be thought of as holding discrete types of IOUs \(each from the perspective of the entity tracking its side of the account\). 
+
+For example, if Alice and Bob are tracking a bilateral balance in US Dollars, then from Alice's perspective the unit of account is called an "Alice Owes Bob Dollars" or `AOB`. From Bob's perspective, the unit of account is called a "Bob Owes Alice Dollars" or `BOA`. 
+
+Balances on either side of the account can become positive or negative, but because the sum total of both balances must always equal zero, each balance will always be the inverse of the other side's balance. 
+
+Thus, if Alice has a balance of `-10` , then Bob _must_ have a balance of `+10`, which means that Bob has 10 BOAs and Alice has -10 AOBs. In other words, Bob has a debt position with Alice in which he is holding 10 of her units, payable to Alice. Conversely, Alice has a lending position with Bob in which she has lent him 10 units \(which he might not pay back\). From Alice's perspective, she holds -10 AOBs, which is to say Alice holds -10 obligations to pay Bob $1 USD. Put into different language, this equates to Alice holding 10 obligations for Bob to pay her $1 USD.
 
 ## Links
 
