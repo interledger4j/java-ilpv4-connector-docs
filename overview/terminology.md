@@ -5,13 +5,17 @@ description: 'Words, words, words...let''s all get on the same page.'
 # Terminology
 
 **Account**  
-A mechanism to track debt between two parties. Debt positions are denominated in a single, mutually agreed upon asset such as `USD`, `EUR`, `BTC`, `XRP` or any other type of asset code like `WIDGETS`. The balance of an account represents the total number of units that one party owes the other, depending upon the balance tracking method \(see more below\).
+A mechanism to track debt between two parties. Debt positions are denominated in a single, mutually agreed upon asset such as `USD`, `EUR`, `BTC`, `XRP` or any other type of asset code such as `WIDGETS`. 
+
+The balance of an account represents the total number of units that one party owes the other, depending upon the balance tracking method \(see more below\).
 
 **Account Balance**  
 The total debt position between two peers represented in a particular fungible unit of account. Account balances can be tracked in arbitrary ways, although the two most common forms are bilateral \(both parties track an independent view of the balance\) or unilateral \(one party tracks the balance for both sides of the Account\).
 
 **Balance Tracking \(Bilateral\)**  
-A mechanism for tacking balances where both parties to an account track the balance independently, with the sum of both sides' balances always equaling zero. For example, this type of balance will always start off with each party having a balance of 0. If Alice Pays Bob 10 units, then Alice's balance tracker will show -10, whereas Bob's balance tracker will show +10.  If Bob then sends Alice 20 units, then Alice's balance tracker will show +10 and Bob's balance tracker will show -10.
+A mechanism for tacking balances where both parties to an account track the balance independently, with the sum of both sides' balances always equaling zero. 
+
+For example, this type of balance will always start off with each party having a balance of 0. If Alice Pays Bob 10 units, then Alice's balance tracker will show -10, whereas Bob's balance tracker will show +10.  If Bob then sends Alice 20 units, then Alice's balance tracker will show +10 and Bob's balance tracker will show -10.
 
 **Balance Tracking \(Unilateral\)**  
 A mechanism for tacking balances where only one party to an account tracks the balance for both parties. Generally speaking, the entity holding actual assets should be the party that tracks a unilateral account balance. As such, the unit of account on such a balance is an IOU payable from the balance tracking entity to the counterparty.
