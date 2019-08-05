@@ -6,8 +6,8 @@ description: A Java implementation of an Interledger v4 Router.
 
 This site contains documentation for the Java implementation of an Interledger Router.
 
-**Github project source code**: [java-ilp-connector](https://github.com/sappenin/java-ilpv4-connector)  
-**Docs source code**: [java-ilp-connector-docs](https://github.com/sappenin/java-ilpv4-connector-docs)  
+**Github project source code**: [https://github.com/sappenin/java-ilpv4-connector](https://github.com/sappenin/java-ilpv4-connector)  
+**Docs source code**: [https://github.com/sappenin/java-ilpv4-connector-docs](https://github.com/sappenin/java-ilpv4-connector-docs)  
 **Documentation Website**: [https://java-router.ilpv4.dev](https://java-router.ilpv4.dev)
 
 ## Overview
