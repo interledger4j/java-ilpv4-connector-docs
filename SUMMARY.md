@@ -5,7 +5,12 @@
 ## Overview
 
 * [Terminology](overview/terminology.md)
-* [Architecture & Design](overview/architecture-design.md)
+* [Overall Design](overview/overall-design.md)
+* [Packet Switching Fabric](overview/packet-switching-fabric.md)
+* [Exchange Rates](overview/exchange-rates.md)
+* [Balance Tracking](overview/balance-tracking.md)
+* [Routing Table Design](overview/ilpv4-routing-table-design.md)
+* [Packet Destination Address Handling](overview/architecture-design.md)
 * [Interledger Account Model](overview/peering-account-model.md)
 
 ## Operating a Connector
