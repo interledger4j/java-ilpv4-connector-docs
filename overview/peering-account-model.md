@@ -1,4 +1,4 @@
-# Interledger Account Model
+# Account Model
 
 Interledger Connectors track relationships with their peers using a concept called an `Account`. Accounts have two primary functions. The first is to track an asset balance, denominated in a single currency/asset-type, between two Interledger parties. The second purpose is to provide a conduit for exchanging ILP packets, which can enable value transfer across the Interledger.
 

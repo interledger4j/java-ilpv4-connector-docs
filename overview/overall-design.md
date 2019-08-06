@@ -7,6 +7,10 @@ description: >-
 
 # Overall Design
 
+### Account Tracking
+
+In order to efficiently forward ILPv4 packets between its Peers, a Router must track these relationships. Read more about how this implementation tracks account relationships in [Account Model](peering-account-model.md).
+
 ## Packet Switching
 
 The primary sub-system in this router is called a Packet Switch. This component filters incoming packets, ensures that each packet satisfies a variety of preconditions, and then forwards this packed to the appropriate outgoing link. Read more about this component in [Packet Switching Fabric](packet-switching-fabric.md).
