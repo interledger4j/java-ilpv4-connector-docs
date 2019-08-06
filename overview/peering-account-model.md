@@ -6,7 +6,7 @@ description: >-
 
 # Account Model
 
-ILPv4 Router accounts have two primary functions. The first is to track an asset balance, denominated in a single currency/asset-type, between two Interledger parties. The second purpose is to provide a conduit for exchanging ILP packets, which can enable value transfer across the Interledger.
+Accounts have two primary functions. The first is to track an asset balance, denominated in a single currency/asset-type, between two Interledger parties. The second purpose is to provide a conduit for exchanging ILP packets, which can enable value transfer across the Interledger.
 
 When two ILP nodes \(two Connectors, for example\) enter into an accounting relationship, each Connector will construct a unique identifier to track the account for itself. This implementation calls this identifier an `accoundId`.
 
