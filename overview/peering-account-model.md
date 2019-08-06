@@ -4,13 +4,13 @@ Interledger Connectors track relationships with their peers using a concept call
 
 When two ILP nodes \(two Connectors, for example\) enter into an accounting relationship, each Connector will construct a unique identifier to track the account for itself. This implementation calls this identifier an `accoundId`.
 
-Using account Ids, a Connector will track the _concept_ of an account using three different primitives, each of which is described below in more detail. This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single account model would not scale well for all internal usages inside the Connector.
+Using account Ids, a Connector will track the _concept_ of an account using three different primitives, each of which is described below in more detail. This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single account domain-model would likely not scale well for all use-cases.
 
 ## Account Settings
 
-The `AccountsSettings` object is the initial primitive used to track all information necessary for the Connector to operate upon an account. This includes minimum and maximum balance thresholds, link information, and information about about the underlying asset for the account \(i.e., the asset `code` and `scale`\).
+The [`AccountsSettings`](https://github.com/sappenin/java-ilpv4-connector/blob/master/ilpv4-connector-accounts/src/main/java/org/interledger/connector/accounts/AccountSettings.java) object tracks all information necessary for the Connector to _describe_ an account. This includes minimum and balance thresholds, link information, and information about about the underlying asset for the account \(i.e., the asset `code` and `scale`\).
 
-This data is typically persisted to a persistent data-store, and loaded at various times in the connector's operating cycle. In general, AccountSettings information is highly cacheable, including across a cluster using a shared data-store, so this type of information can easily live in a typical RDBMS or NoSQL system.
+This data is typically stored in a durable data-store, and loaded at various times in a performant yet as-needed basis by the Router. In general, account information is highly cacheable using local-caches with relatively short timeouts \(which works well-enough across a cluster\) so this type of information can easily live in a typical RDBMS. See [Connector Persistence](../operating-a-connector/ilpv4-connector-persistence.md) for more details around supported datastores.
 
 ## Balance Tracking
 
