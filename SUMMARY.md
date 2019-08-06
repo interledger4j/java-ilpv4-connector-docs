@@ -6,7 +6,7 @@
 
 * [Terminology](overview/terminology.md)
 * [Architecture & Design](overview/architecture-design.md)
-* [Peering Account Model](overview/peering-account-model.md)
+* [Interledger Account Model](overview/peering-account-model.md)
 
 ## Operating a Connector
 
