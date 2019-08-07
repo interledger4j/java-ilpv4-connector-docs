@@ -16,8 +16,7 @@
 ## Operating a Connector
 
 * [Connector Configuration](operating-a-connector/configuration.md)
-* [README](operating-a-connector/ddl.md)
-* [ILP Connector Persistence](operating-a-connector/ilpv4-connector-persistence.md)
+* [Persistence](operating-a-connector/ilpv4-connector-persistence.md)
 
 ## API Reference
 
