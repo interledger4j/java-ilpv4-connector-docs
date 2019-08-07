@@ -2,16 +2,16 @@
 
 * [Java ILPv4 Router](README.md)
 
-## Overview
+## Concepts
 
-* [Terminology](overview/terminology.md)
-* [Overall Design](overview/overall-design.md)
-* [Account Model](overview/peering-account-model.md)
-* [Packet Switching Fabric](overview/packet-switching-fabric.md)
-* [Exchange Rates](overview/exchange-rates.md)
-* [Balance Tracking](overview/balance-tracking.md)
-* [Routing Table Design](overview/ilpv4-routing-table-design.md)
-* [Packet Destination Address Handling](overview/architecture-design.md)
+* [Feature Summary](concepts/overall-design.md)
+* [Terminology](concepts/terminology.md)
+* [Account Model](concepts/peering-account-model.md)
+* [Packet Switching Fabric](concepts/packet-switching-fabric.md)
+* [Exchange Rates](concepts/exchange-rates.md)
+* [Balance Tracking](concepts/balance-tracking.md)
+* [Routing Table Design](concepts/ilpv4-routing-table-design.md)
+* [Destination Address Handling](concepts/architecture-design.md)
 
 ## Operating a Connector
 

@@ -22,7 +22,7 @@ This implementation supports the following features:
 * **Balance Tracking**: [Redis](https://redis.io) is used to durably track balance updates in a high-performance manner.
 * **Persistent Data Storage**: Account and other data can be stored using Postgres, MySQL, Oracle, MSSQL, and more.
 
-To learn more about how this implementation is designed, see [Connector Design](overview/architecture-design.md).
+To learn more about how this implementation is designed, see [Connector Design](concepts/architecture-design.md).
 
 To contribute to this project read more in [Connector Development](contributing/development.md).
 

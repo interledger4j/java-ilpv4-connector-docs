@@ -4,7 +4,7 @@ description: >-
   Router when it encounters a Prepare packet.
 ---
 
-# Packet Destination Address Handling
+# Destination Address Handling
 
 ## Packet Destination Address Handling
 
