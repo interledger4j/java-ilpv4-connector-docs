@@ -1,16 +1,22 @@
 ---
 description: >-
-  Interledger Routers track relationships with their peers using a concept
-  called an Account.
+  Interledger Routers track peer relationships using a concept called an
+  Account.
 ---
 
 # Account Model
 
-Accounts have two primary functions. The first is to track an asset balance, denominated in a single currency/asset-type, between two Interledger parties. The second purpose is to provide a conduit for exchanging ILP packets, which can enable value transfer when these relationships are chained together across multiple routers to form payment paths across the Interledger.
+Router Accounts have two primary functions. 
 
-When two ILP nodes \(two Connectors, for example\) enter into an accounting relationship, each Connector will construct a unique identifier to track the account for itself. This implementation calls this identifier an `accoundId`.
+The first is to track a debt position, denominated in a single fungible asset, between two Interledger parties \(read more about this in [Balance Tracking](balance-tracking.md)\). 
 
-Using account Ids, a Connector will track the _concept_ of an account using three different primitives, each of which is described below in more detail. This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single account domain-model would likely not scale well for all use-cases.
+The second purpose is to provide a conduit for exchanging ILP packets. When chained together to form a payment path, these relationships can enable value transfer across the Interledger.
+
+When two Interledger nodes \(two ILP Routers, for example\) enter into an account arrangement \(sometimes called a Peering Relationship\), each Router will construct a unique identifier to track the relationship for itself. This implementation calls this identifier an `accoundId`.
+
+Using account Ids, a Connector can correlate each details about the relationship using three different primitives \(described below\). 
+
+This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single domain-model object would likely not scale well for all use-cases that a Router must fulfill.
 
 ## Account Settings
 
