@@ -39,6 +39,7 @@
 ## Contributing
 
 * [Connector Development](contributing/development.md)
+* [Project Testing](contributing/project-testing.md)
 
 ## Releases <a id="undefined"></a>
 
