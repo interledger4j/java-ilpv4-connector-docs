@@ -16,7 +16,7 @@
 
 ## Operating a Connector
 
-* [Connector Configuration](operating-a-connector/configuration.md)
+* [Runtime Configuration](operating-a-connector/configuration.md)
 * [Persistence](operating-a-connector/ilpv4-connector-persistence.md)
 
 ## API Reference

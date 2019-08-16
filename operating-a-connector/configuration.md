@@ -1,8 +1,8 @@
-# Connector Configuration
+---
+description: Knobs and switches to adjust before your Connector starts up.
+---
 
-
-
-## Runtime Configuration Properties
+# Runtime Configuration
 
 Runtime configuration of this Connector is obtained from a variety of potential sources when the connector starts up. This includes property files, environment variables, system properties and more, per the precedence defined by [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
