@@ -35,7 +35,6 @@
 
 * [Running the Connector](tutorials/running-the-connector.md)
 * [Peering: ILP-over-HTTP](tutorials/ilp-over-http-peering.md)
-* [Peering: BTP](tutorials/peering-btp.md)
 * [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 
 ## Contributing
