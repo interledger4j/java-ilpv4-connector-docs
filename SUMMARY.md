@@ -9,9 +9,10 @@
 * [Account Model](concepts/peering-account-model.md)
 * [Packet Switching Fabric](concepts/packet-switching-fabric.md)
 * [Exchange Rates](concepts/exchange-rates.md)
-* [Balance Tracking](concepts/balance-tracking.md)
 * [Routing Table Design](concepts/ilpv4-routing-table-design.md)
 * [Destination Address Handling](concepts/architecture-design.md)
+* [Balance Tracking](concepts/balance-tracking.md)
+* [Settlement](concepts/settlement-xrp-ledger.md)
 
 ## Operating a Connector
 
@@ -28,13 +29,14 @@
 * [test-jwt.io](security-guide/test-jwt.io.md)
 * [Generating Keys](security-guide/undefined.md)
 * [Spring Boot with TLS](security-guide/tls.md)
+* [Untitled](security-guide/untitled.md)
 
-## Examples
+## Tutorials
 
-* [Running the Connector](examples/running-the-connector.md)
-* [Peering: ILP-over-HTTP](examples/ilp-over-http-peering.md)
-* [Peering: BTP](examples/peering-btp.md)
-* [Settlement: XRP Ledger](examples/settlement-xrp-ledger.md)
+* [Running the Connector](tutorials/running-the-connector.md)
+* [Peering: ILP-over-HTTP](tutorials/ilp-over-http-peering.md)
+* [Peering: BTP](tutorials/peering-btp.md)
+* [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 
 ## Contributing
 
