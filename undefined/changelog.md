@@ -1,6 +1,6 @@
 # Changelog
 
-This implementation follows [Semantic Versioning](https://semver.org/) as closely as possible.
+This implementation follows [Semantic Versioning](https://semver.org/) as closely as possible. This page details changes at the release level. However, you can find more granular status updates in the project wiki [here](https://github.com/sappenin/java-ilpv4-connector/wiki/Weekly-Progress).
 
 ## v0.1.0 \(August 31st, 2019\)
 
