@@ -16,8 +16,8 @@
 
 ## Operating a Connector
 
-* [Runtime Configuration](operating-a-connector/configuration.md)
-* [Persistence](operating-a-connector/ilpv4-connector-persistence.md)
+* [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
+* [Configuration Properties](operating-a-connector/configuration.md)
 
 ## API Reference
 
@@ -33,7 +33,8 @@
 
 ## Tutorials
 
-* [Running the Connector](tutorials/running-the-connector.md)
+* [Install the Connector \(Debian\)](tutorials/running-the-connector.md)
+* [Starting the Connector](tutorials/initial-configuration-and-startup.md)
 * [Peering: ILP-over-HTTP](tutorials/ilp-over-http-peering.md)
 * [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 
