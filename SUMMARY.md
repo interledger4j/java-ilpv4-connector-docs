@@ -33,9 +33,9 @@
 
 ## Tutorials
 
-* [Install the Connector \(Debian\)](tutorials/running-the-connector.md)
-* [Starting the Connector](tutorials/initial-configuration-and-startup.md)
-* [Peering: ILP-over-HTTP](tutorials/ilp-over-http-peering.md)
+* [Install the Connector \(Debian\)](tutorials/install-the-connector-debian.md)
+* [Starting the Connector](tutorials/starting-the-connector.md)
+* [Peering: ILP-over-HTTP](tutorials/peering-ilp-over-http.md)
 * [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 
 ## Contributing
