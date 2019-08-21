@@ -43,7 +43,7 @@
 * [Connector Development](contributing/development.md)
 * [Project Testing](contributing/project-testing.md)
 
-## Releases <a id="undefined"></a>
+## Releases
 
-* [Changelog](undefined/changelog.md)
+* [Changelog](releases/changelog.md)
 
