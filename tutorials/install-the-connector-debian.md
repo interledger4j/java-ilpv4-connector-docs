@@ -58,7 +58,7 @@ git clone https://github.com/sappenin/java-ilpv4-connector.git
 cd java-ilpv4-connector
 mvn clean install -DskipTests
 mkdir /srv/connector-java
-mv  /tmp/java-ilpv4-connector/ilpv4-connector-server/target/ilpv4-connector-server-0.1.0-SNAPSHOT-exec.jar /srv/connector-java/
+mv  /srv/java-ilpv4-connector/ilpv4-connector-server/target/ilpv4-connector-server-0.1.0-SNAPSHOT-exec.jar /srv/connector-java/
 ```
 
 {% hint style="info" %}
