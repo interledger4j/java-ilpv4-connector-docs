@@ -17,11 +17,12 @@
 ## Operating a Connector
 
 * [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
-* [Configuration Properties](operating-a-connector/configuration.md)
+* [Connector Configuration Properties](operating-a-connector/configuration.md)
+* [Account Configuration Properties](operating-a-connector/account-configuration-properties.md)
 
 ## API Reference
 
-* [Untitled](api-reference/untitled.md)
+* [Accounts](api-reference/untitled.md)
 
 ## Security Guide
 
