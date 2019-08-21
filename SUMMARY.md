@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Java ILPv4 Router](README.md)
+* [Java Connector](README.md)
 
 ## Concepts
 
