@@ -74,7 +74,7 @@ If no security credentials are not required by your database, then the `username
 Configures how all underlying HTTP clients will interact with any Settlement Engine service. Currently, the Settlement Engine client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
 {% hint style="info" %}
-The root configuration key for Settlement Engine clients is: **`ilpv4.connector.settlementEngines.connectionDefaults`**
+The root configuration key for Settlement Engine clients is: **`interledger.connector.settlementEngines.connectionDefaults`**
 {% endhint %}
 
 * **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: `5`_\)._
@@ -88,7 +88,7 @@ In the `application.yml` file, a sample configuration might look like this:
 {% code-tabs %}
 {% code-tabs-item title="application.yml" %}
 ```yaml
-ilpv4:
+interledger:
   connector:
     settlementEngines:
       connectionDefaults:
@@ -106,7 +106,7 @@ ilpv4:
 Configures how all underlying HTTP clients will interact with any peer using [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md). Currently, the Ilp-over-Http client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
 {% hint style="info" %}
-The root configuration key for Settlement Engine clients is: **`ilpv4.connector.settlementEngines.ilpOverHttp`**
+The root configuration key for Settlement Engine clients is: **`interledger.connector.settlementEngines.ilpOverHttp`**
 {% endhint %}
 
 * **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: `5`_\)._
@@ -120,7 +120,7 @@ In the `application.yml` file, a sample configuration might look like this:
 {% code-tabs %}
 {% code-tabs-item title="application.yml" %}
 ```yaml
-ilpv4:
+interledger:
   connector:
     ilpOverHttp:
       connectionDefaults:

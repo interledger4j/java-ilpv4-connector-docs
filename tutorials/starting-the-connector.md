@@ -46,7 +46,7 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
 
-ilpv4:
+interledger:
   connector:
     adminPassword: password
     keystore:
