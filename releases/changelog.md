@@ -6,7 +6,7 @@ This implementation follows [Semantic Versioning](https://semver.org/) as closel
 
 ### Fixed
 
-* For a list of all fixed issues, see the v0.1.0 Github issues [here](https://github.com/sappenin/java-ilpv4-connector/labels/v0.1.0). 
+* For a list of all fixed issues, see the v0.1.0 Github issues [here](https://github.com/sappenin/java-ilpv4-connector/projects/11). 
 
 ### Changed
 
