@@ -29,7 +29,6 @@
 * [test-jwt.io](security-guide/test-jwt.io.md)
 * [Generating Keys](security-guide/undefined.md)
 * [Spring Boot with TLS](security-guide/tls.md)
-* [Untitled](security-guide/untitled.md)
 
 ## Tutorials
 
