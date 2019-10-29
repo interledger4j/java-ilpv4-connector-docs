@@ -18,7 +18,6 @@
 
 * [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
 * [Connector Configuration Properties](operating-a-connector/configuration.md)
-* [Account Configuration Properties](operating-a-connector/account-configuration-properties.md)
 
 ## API Reference
 

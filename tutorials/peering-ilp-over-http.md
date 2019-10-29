@@ -21,7 +21,7 @@ In order to create an actual Interledger peering relationship, you would need to
 * Will this account be settled? If so, determine the `settle_threshold` and `settle_to` values \(this will affect how you want to limit what you owe the peer\).
 * The amount credit to extend to your peer. This will be the `min_balance` value.
 * The currency unit you will use to denominate the account relationship. This guide will use `USD` in all examples.
-* See [Account Configuration](../operating-a-connector/account-configuration-properties.md) for more details.
+* See [Account Configuration]() for more details.
 
 {% hint style="info" %}
  This guide does not enable settlement. See [Settlement: XRP Leger](settlement-xrp-ledger.md) for an example of how that could work using this guide as a starting point.
