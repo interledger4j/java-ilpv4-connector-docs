@@ -36,12 +36,5 @@ In this setup, the `alice` and `bob` connectors are able to clear payments using
 **Interledger doesn't require the usage of XRP, or any particular underlying settlement system.** To wit, in this example, Alice and Bob could settle their outstanding debts using _any_ underlying settlement system: fiat, crypto system, paper checks, or something else.
 {% endhint %}
 
-You can view the actual settlement transaction history of our integration test system by inspecting the XRP Ledger accounts here:
-
-* **Alice's XRPL Account**: [rPtZP6jEcAMo2v1aVAJqoqqoZThRTx2voE](https://testnet.xrpl.org/accounts/rPtZP6jEcAMo2v1aVAJqoqqoZThRTx2voE) 
-* **Bob's XRP Ledger Account**: [rdVEU3RfkW4q9Fg3BTBhaNJr8gy9pZRrw](https://testnet.xrpl.org/accounts/rdVEU3RfkW4q9Fg3BTBhaNJr8gy9pZRrw)
-
-
-
-
+You can view the actual settlement transaction history of our integration test system by inspecting the XRP Ledger accounts in the [XRPL Testnet Faucet](https://xrpl.org/xrp-ledger-rpc-tool.html).
 
