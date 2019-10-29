@@ -8,7 +8,7 @@ This site contains documentation for the Java implementation of an Interledger R
 
 **Github project source code**: [https://github.com/sappenin/java-ilpv4-connector](https://github.com/sappenin/java-ilpv4-connector)  
 **Docs source code**: [https://github.com/sappenin/java-ilpv4-connector-docs](https://github.com/sappenin/java-ilpv4-connector-docs)  
-**Documentation Website**: [https://java-router.ilpv4.dev](https://java-router.ilpv4.dev)
+**Documentation Website**: [https://java-connector.ilpv4.dev](https://java-connector.ilpv4.dev)
 
 ## Overview
 
@@ -18,7 +18,7 @@ This implementation supports the following features:
 
 * **ILPv4:** Interledger Protocol version for as defined in [IL-RFC-27](https://github.com/interledger/rfcs/blob/master/0027-interledger-protocol-4/0027-interledger-protocol-4.md).
 * **ILDCP**: Interledger Dynamic Configuration Protocol as specified in [IL-RFC-31](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md).
-* **ILP-over-HTTP**: Also known as BLAST \(**B**i**L**ateral **A**synchronous **S**eder **T**ransport\), defined in [IL-RFC-30](https://github.com/interledger/rfcs/pull/504).
+* **ILP-over-HTTP**: Allows for sending and receiving ILPv4 packets over HTTP as defined in [IL-RFC-30](https://github.com/interledger/rfcs/pull/504).
 * **Route Broadcast Protocol**: Defines how Connectors can exchange routing table updates as defined in [Route Broadcast Protocol](https://github.com/interledger/rfcs/pull/455).
 * **Balance Tracking**: Durably tracks account balance updates in a high-performance manner using [Redis](https://redis.io).
 * **Persistent Data Storage**: Account and other data can be stored using Postgres, MySQL, Oracle, MSSQL, and more.
