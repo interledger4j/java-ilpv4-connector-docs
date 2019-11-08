@@ -4,9 +4,9 @@ description: Running with Docker
 
 # Running with Docker
 
-Prerequisites:
+## Prerequisites
 
-* Docker installed and running
+* Docker must be installed and running.
 
 ## Starting a connector \(using in-memory database and in-memory Redis\)
 
