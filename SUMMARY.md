@@ -32,7 +32,7 @@
 
 ## Tutorials
 
-* [Running with Docker](tutorials/untitled.md)
+* [Running with Docker](tutorials/running-with-docker.md)
 * [Install the Connector \(Debian\)](tutorials/install-the-connector-debian.md)
 * [Starting the Connector](tutorials/starting-the-connector.md)
 * [Peering: ILP-over-HTTP](tutorials/peering-ilp-over-http.md)
