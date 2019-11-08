@@ -10,8 +10,8 @@ description: >-
 
 In order to startup the Connector, you'll need a minimal one, like this:
 
-{% code-tabs %}
-{% code-tabs-item title="application.yml" %}
+{% tabs %}
+{% tab title="application.yml" %}
 ```yaml
 logging:
   level:
@@ -67,8 +67,8 @@ interledger:
       # Represents the plaintext value of `shh`, encrypted.
       routingSecret: enc:JKS:crypto.p12:secret0:1:aes_gcm:AAAADKZPmASojt1iayb2bPy4D-Toq7TGLTN95HzCQAeJtz0=
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 Next, startup the Connector using this command:
 
