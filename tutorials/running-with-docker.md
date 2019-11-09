@@ -47,7 +47,7 @@ docker run -d -p 5432:5432 postgres
 To start a Redis cache, run:
 
 ```text
-docker run -d -p 5432:5432 redis
+docker run -d -p 6379:6379 redis
 ```
 
 You can verify the containers are running via:
