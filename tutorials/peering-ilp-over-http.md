@@ -48,7 +48,7 @@ For simplicity, this guide makes the following assumptions:
     * **URL**: n/a
 
 {% hint style="success" %}
-Reference the [Connector Admin API](../api-reference/untitled.md) documentation for more details about actual payloads and their meanings.
+Reference the [Connector Admin API](../admin-api-reference/untitled.md) documentation for more details about actual payloads and their meanings.
 {% endhint %}
 
 ## Configuration on Alice
