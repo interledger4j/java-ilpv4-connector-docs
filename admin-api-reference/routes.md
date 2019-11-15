@@ -176,7 +176,7 @@ Not authorized to view static routes
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="" path="/routes/static/{route\_prefix}" %}
+{% api-method method="put" host="" path="/routes/static/:route\_prefix" %}
 {% api-method-summary %}
 Create Static Route
 {% endapi-method-summary %}
@@ -265,7 +265,7 @@ Not authorized to create a new static route.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="" path="/routes/static/{route\_prefix}" %}
+{% api-method method="delete" host="" path="/routes/static/:route\_prefix" %}
 {% api-method-summary %}
 Delete Static Route
 {% endapi-method-summary %}
