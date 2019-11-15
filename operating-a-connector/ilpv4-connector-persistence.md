@@ -42,8 +42,7 @@ As an alternative during development, you can utilize the liquibase-maven-plugin
 
 However, for this to work, you first need to update the `pom.xml` file in the `ilpv4-connector-persistence` module to conform to your connection parameters by setting the `configuration.url` to a value for your environment, like this:
 
-{% tabs %}
-{% tab title="ilpv4-connector-persistence/pom.xml" %}
+{% code title="ilpv4-connector-persistence/pom.xml" %}
 ```markup
 ...
 <profiles>
@@ -56,8 +55,7 @@ However, for this to work, you first need to update the `pom.xml` file in the `i
       ...
 </profiles>
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 Once the liquibase-maven-plugin is configured properly, the following commands will update the database directly:
 

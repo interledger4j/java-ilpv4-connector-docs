@@ -25,8 +25,7 @@ This section details discrete Connector properties that can be configured, with 
 * `minMessageWindowMillis`: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node.
 * `maxHoldTimeMillis`: \(Default: `30000`\) The amount of time that the Connector will wait  for a fulfillment/rejection. This is equivalent to outgoing link's timeout duration.
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -38,8 +37,7 @@ interledger:
     minMessageWindowMillis: 1000
     maxHoldTimeMillis: 30000
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### JKS Key Management Properties
 
@@ -51,8 +49,7 @@ The Connector supports storing keys and secrets in a [Java Keystore](https://en.
 * `secret0_alias`: The alias name of they secret that is used by the Connector to encrypt, decrypt, and HMAC all other secret values.
 * `secret0_password`: The password required to unlock the `secret0` alias in the Keystore.
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -66,8 +63,7 @@ interledger:
         # For dev purposes this is fine, but not for real use-cases. Encrypt this value instead.
         secret0_password: password
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### KMS Key Management Properties
 
@@ -76,8 +72,7 @@ The Connector supports storing keys and secrets in various Key Management Servic
 * `enabled`: Enables or disables this keystore.
 * `locationId`: The GCP [locationId](https://cloud.google.com/kms/docs/locations) for your configured KMS instance.
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -85,22 +80,19 @@ interledger:
       enabled: false
       locationId: global
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### Enabled Feature Properties
 
 * `rateLimitingEnabled`: \(Default value: `true`\) Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced.
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
     rateLimitingEnabled: true
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### Enabled Protocol Properties
 
@@ -109,8 +101,7 @@ interledger:
 * `pingProtocolEnabled`: \(Default: `true`\) Determines if [ILP Ping](https://github.com/interledger/rfcs/pull/516) is enabled.
 * `ildcpEnabled`: \(Default: `true`\) Determines if [IL-DCP](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md) is enabled.
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -120,8 +111,7 @@ interledger:
       pingProtocolEnabled: true
       ildcpEnabled: true
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### Persistence Configuration Properties
 
@@ -162,8 +152,7 @@ In addition, the following two properties can be used to supply the Connector wi
 
 In the `application.yml` file, a sample configuration might look like this:
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 spring:
   datasource:
@@ -171,8 +160,7 @@ spring:
     username: postgres
     password: 
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 {% hint style="danger" %}
 If no security credentials are not required by your database, then the `username` and `password` properties may be omitted. **However, such a configuration is not recommended**.
@@ -196,8 +184,7 @@ The root configuration key for Settlement Engine clients is: **`interledger.conn
 
 In the `application.yml` file, a sample configuration might look like this:
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -209,8 +196,7 @@ interledger:
         readTimeoutMillis: 10000
         writeTimeoutMillis: 30000
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 #### Ilp-over-Http Clients
 
@@ -228,8 +214,7 @@ The root configuration key for Settlement Engine clients is: **`interledger.conn
 
 In the `application.yml` file, a sample configuration might look like this:
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -241,8 +226,7 @@ interledger:
         readTimeoutMillis: 10000
         writeTimeoutMillis: 30000
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 #### FX Http Client Properties
 
@@ -260,8 +244,7 @@ The root configuration key for Http FX clients is: **`interledger.connector.fx`*
 
 In the `application.yml` file, a sample configuration might look like this:
 
-{% tabs %}
-{% tab title="application.yml" %}
+{% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
@@ -273,8 +256,39 @@ interledger:
         readTimeoutMillis: 10000
         writeTimeoutMillis: 30000
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
+
+### Keys and shared secrets
+
+The connector uses key aliases and versions to determine what to use when handling encrypted shared secrets such as those for incoming and outgoing account settings links.
+
+Following keys are configurable:
+
+* `secret0`: Master encryption key for the connector.
+* `accountSettings`: Encryption key for account settings shared secrets.
+
+By default, the connector requires the shared secrets to be at least 32 bytes. To remove this requirement in non-production environments so that any secret length is allowed, set the following property to false:
+
+* `require32ByteSharedSecrets`: Set to `false` to allow smaller shared-secrets. \(Default: `true`\).
+
+In the `application.yml` file, a sample configuration might look like this.
+
+```yaml
+application.yml
+
+interledger:
+  connector:
+    require32ByteSharedSecrets: false
+    keys:
+      secret0:
+        alias: secret0
+        version: 1
+      accountSettings:
+        alias: secret0
+        version: 1
+```
+
+The connector makes use of keys to encrypt and decrypt shared secrets. By default, the plain text value of a shared secret must be 32 bytes but this can be 
 
 ### Spring Profiles
 
@@ -287,13 +301,11 @@ Several Spring profiles are available to make it easier to enable certain featur
 
 These profiles can be enabled by from the command-line using `-Dspring.profiles.active=h2,management,...`, via an environment variable `SPRING_PROFILES_ACTIVE=h2,management,...` or by adding the following to your application.yaml:
 
-{% tabs %}
-{% tab title="application.yaml" %}
+{% code title="application.yaml" %}
 ```yaml
 spring:
   profiles:
     active: h2,management,...
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 

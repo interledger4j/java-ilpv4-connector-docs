@@ -25,19 +25,16 @@ sudo apt-get install unzip
 
 Use the following script to install OpenJDK 8.
 
-{% tabs %}
-{% tab title="installOpenJdk8.sh" %}
+{% code title="installOpenJdk8.sh" %}
 ```bash
 sudo apt-get update
 sudo apt-get install default-jdk
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ### Install Unlimited JCE Policy
 
-{% tabs %}
-{% tab title="installUnlimitedJCE.sh" %}
+{% code title="installUnlimitedJCE.sh" %}
 ```bash
 curl -L --cookie 'oraclelicense=accept-securebackup-cookie;'  http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip -o /tmp/jce_policy.zip
 unzip -o /tmp/jce_policy.zip -d /tmp
@@ -45,8 +42,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 sudo mv -f /tmp/UnlimitedJCEPolicyJDK8/US_export_policy.jar $JAVA_HOME/jre/lib/security/US_export_policy.jar
 sudo mv -f /tmp/UnlimitedJCEPolicyJDK8/local_policy.jar $JAVA_HOME/jre/lib/security/local_policy.jar
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 ## Download & Build 
 
