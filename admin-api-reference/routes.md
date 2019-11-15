@@ -277,7 +277,7 @@ Delete the static route identified by \`route\_prefix\`.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="routePrefix" type="string" required=true %}
+{% api-method-parameter name="route\_prefix" type="string" required=true %}
 An Interledger Address prefix to identify the static route.
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
