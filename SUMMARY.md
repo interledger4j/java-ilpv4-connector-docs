@@ -19,10 +19,9 @@
 * [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
 * [Connector Configuration Properties](operating-a-connector/configuration.md)
 
-## Admin API Reference
+## API References
 
-* [Accounts](admin-api-reference/untitled.md)
-* [Routes](admin-api-reference/routes.md)
+* [Admin API](api-references/untitled.md)
 
 ## Security Guide
 
