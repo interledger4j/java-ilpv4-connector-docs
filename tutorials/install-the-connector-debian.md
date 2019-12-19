@@ -23,7 +23,13 @@ sudo apt-get install unzip
 
 ### Install OpenJDK 8
 
-Use the following script to install OpenJDK 8.
+The Java Connector should build and run using Java version 8 or higher. You can use the following command to determine which version of the JDK is installed in your runtime via the following commnad:
+
+```text
+dpkg -s default-jdk | grep Depends
+```
+
+For example, Debian 18.04 comes preinstalled with JDK 11. However, if you're image doesn't have a JDK installed, then use the following script to install OpenJDK 8:
 
 {% code title="installOpenJdk8.sh" %}
 ```bash
@@ -33,6 +39,10 @@ sudo apt-get install default-jdk
 {% endcode %}
 
 ### Install Unlimited JCE Policy
+
+{% hint style="warning" %}
+This step is only required for JDK 8. For JDK 9 and later, these SDKs ship with, and enable by default, the JCE Unlimited Policy, so if you're using one of those JDKs, this step can be skipped.
+{% endhint %}
 
 {% code title="installUnlimitedJCE.sh" %}
 ```bash
