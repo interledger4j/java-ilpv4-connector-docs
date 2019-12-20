@@ -21,7 +21,7 @@
 
 ## API References
 
-* [Admin API](api-references/untitled.md)
+* [Admin API](api-references/admin-api.md)
 
 ## Security Guide
 
