@@ -1,5 +1,5 @@
 ---
-description: Guides you how to install the Connector on Debian
+description: Guides you how to install the Connector on Debian 18.04
 ---
 
 # Install the Connector \(Debian\)
@@ -35,6 +35,11 @@ For example, Debian 18.04 comes preinstalled with JDK 11. However, if you're ima
 ```bash
 sudo apt-get update
 sudo apt-get install default-jdk
+
+find /usr/lib/jvm/ -regex '^/usr/lib/jvm/java.*-openjdk-amd64$' -type d
+#output -> /usr/lib/jvm/java-{VERSION}-openjdk-amd64/
+#example -> /usr/lib/jvm/java-11-openjdk-amd64/
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 ```
 {% endcode %}
 
@@ -48,7 +53,6 @@ This step is only required for JDK 8. For JDK 9 and later, these SDKs ship with,
 ```bash
 curl -L --cookie 'oraclelicense=accept-securebackup-cookie;'  http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip -o /tmp/jce_policy.zip
 unzip -o /tmp/jce_policy.zip -d /tmp
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 sudo mv -f /tmp/UnlimitedJCEPolicyJDK8/US_export_policy.jar $JAVA_HOME/jre/lib/security/US_export_policy.jar
 sudo mv -f /tmp/UnlimitedJCEPolicyJDK8/local_policy.jar $JAVA_HOME/jre/lib/security/local_policy.jar
 ```
