@@ -20,7 +20,7 @@ This design is preferred over a single `Account` object because Connectors must 
 
 ## Account Settings
 
-The [`AccountsSettings`](https://github.com/sappenin/java-ilpv4-connector/blob/master/ilpv4-connector-accounts/src/main/java/org/interledger/connector/accounts/AccountSettings.java) object tracks all information necessary for the Connector to _describe_ an account. This includes minimum and balance thresholds, link information, and information about about the underlying asset for the account \(i.e., the asset `code` and `scale`\).
+The [`AccountsSettings`](https://github.com/interledger4j/ilpv4-connector/blob/master/connector-accounts/src/main/java/org/interledger/connector/accounts/AccountSettings.java) object tracks all information necessary for the Connector to _describe_ an account. This includes minimum and balance thresholds, link information, and information about about the underlying asset for the account \(i.e., the asset `code` and `scale`\).
 
 This data is typically stored in a durable data-store, and loaded at various times in a performant yet as-needed basis by the Router. In general, account information is highly cacheable using local-caches with relatively short timeouts \(which works well-enough across a cluster\) so this type of information can easily live in a typical RDBMS. See [Connector Persistence](../operating-a-connector/ilpv4-connector-persistence.md) for more details around supported datastores.
 
