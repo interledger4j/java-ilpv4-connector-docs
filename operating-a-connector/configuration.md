@@ -4,12 +4,12 @@ description: Knobs and switches to adjust before your Connector starts up.
 
 # Connector Configuration Properties
 
-Runtime configuration of this Connector is obtained from a variety of potential sources when the connector starts up. This includes property files, environment variables, system properties and more, per the precedence defined by [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+Runtime configuration of this Connector can be obtained from a variety of potential sources when the connector starts up. This includes property files, environment variables, system properties and more, per the precedence defined by [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 For example, any of the following configuration settings can be overridden at runtime by setting a system or environment variable, or by supplying a runtime switch to the JVM. For example: `-Dredis.host=localhost`.
 
-{% hint style="success" %}
-We recommend creating a file called `application.yml` and putting all of your default configuration in there.
+{% hint style="info" %}
+For advanced configurations with many overrides, it is recommend to place a file called `application.yml` onto the classpath.  Any values defined in this file will override the default values packaged with the application binary.
 {% endhint %}
 
 ## Global Configuration Properties
@@ -39,7 +39,7 @@ interledger:
 ```
 {% endcode %}
 
-### JKS Key Management Properties
+### Properties: JKS Key Management
 
 The Connector supports storing keys and secrets in a [Java Keystore](https://en.wikipedia.org/wiki/Java_KeyStore) \(JKS\) file. To enable this mode, the following properties are supported:
 
@@ -65,7 +65,7 @@ interledger:
 ```
 {% endcode %}
 
-### KMS Key Management Properties
+### Properties: KMS Key Management
 
 The Connector supports storing keys and secrets in various Key Management Services \(KMS\). Currently, [Google Cloud KMS](https://cloud.google.com/kms/) is supported. To enable this mode, the following properties are supported:
 
@@ -82,7 +82,7 @@ interledger:
 ```
 {% endcode %}
 
-### Enabled Feature Properties
+### Properties: Enabled Features
 
 * `rateLimitingEnabled`: \(Default value: `true`\) Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced.
 
@@ -94,7 +94,7 @@ interledger:
 ```
 {% endcode %}
 
-### Enabled Protocol Properties
+### Properties: Enabled Protocols
 
 * `ilpOverHttpEnabled`: \(Default value: `true`\) Determines if [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md) is enabled for Connector account peering.
 * `peerRoutingEnabled`: \(Default: `true`\) Determines if Connector-to-Connector \([CCP](https://github.com/interledger/rfcs/pull/455)\) protocol is enabled to allow this Connector to exchange routing table information with a peer.
@@ -113,7 +113,7 @@ interledger:
 ```
 {% endcode %}
 
-### Persistence Configuration Properties
+### Properties: Persistence Configuration 
 
 #### Redis
 
@@ -166,7 +166,7 @@ spring:
 If no security credentials are not required by your database, then the `username` and `password` properties may be omitted. **However, such a configuration is not recommended**.
 {% endhint %}
 
-### HTTP Client Properties
+### Properties: HTTP Clients
 
 #### Settlement Engine Client
 
@@ -198,7 +198,7 @@ interledger:
 ```
 {% endcode %}
 
-#### Ilp-over-Http Clients
+#### ILP-over-HTTP Clients
 
 Configures how all underlying HTTP clients will interact with any peer using [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md). Currently, the Ilp-over-Http client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
@@ -211,6 +211,8 @@ The root configuration key for Settlement Engine clients is: **`interledger.conn
 * **`connectTimeoutMillis`**: Applied when connecting a TCP socket to the target host. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: `10000`\).
 * **`readTimeoutMillis`**: Applied to both the TCP socket and for individual read IO operations. A value of 0 means no timeout, otherwise values must be between 1 `Integer#MAX_VALUE` \(Default: `60000`\).
 * **`writeTimeoutMillis`**: Applied to individual write IO operations. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: `60000`\).
+* **`maxRequests`** : The maximum number of HTTP requests to execute concurrently. Above this, requests queue in memory, waiting for the running calls to complete \(Default: `100`\).
+* **`maxRequestsPerHost`**: The maximum number of requests for each host to execute concurrently. This limits requests by the URL's host name. Note that concurrent requests to a single IP address may still exceed this limit: multiple hostnames may share an IP address or be routed through the same HTTP proxy. \(Default: `50`\).
 
 In the `application.yml` file, a sample configuration might look like this:
 
@@ -225,10 +227,12 @@ interledger:
         connectTimeoutMillis: 10000
         readTimeoutMillis: 10000
         writeTimeoutMillis: 30000
+        maxRequests: 100
+        maxRequestsPerHost: 50
 ```
 {% endcode %}
 
-#### FX Http Client Properties
+#### FX HTTP Clients
 
 Configures how all underlying HTTP clients for Foreign Exchange \(FX\) will interact with any peer. Currently, the FX client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
@@ -258,7 +262,7 @@ interledger:
 ```
 {% endcode %}
 
-### Keys and shared secrets
+### Properties: Keys and shared secrets
 
 The connector uses key aliases and versions to determine what to use when handling encrypted shared secrets such as those for incoming and outgoing account settings links.
 
