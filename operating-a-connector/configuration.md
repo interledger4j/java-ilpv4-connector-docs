@@ -294,14 +294,39 @@ interledger:
 
 The connector makes use of keys to encrypt and decrypt shared secrets. By default, the plain text value of a shared secret must be 32 bytes but this can be 
 
+### Properties: GCP Pub/Sub
+
+Publishing fulfillment and/or rejection packets to GCP Pub/Sub can be enabled by setting the following properties:
+
+* `spring.cloud.gcp.credentials.location`: path to GCP service account JSON. This service account should have permissions to publish to pubsub.
+* `spring.cloud.gcp.credentials.encoded_key`: an alternative way to provide the service account JSON as a base-64 encoded string instead of as a file location. For example, on linux, using the output of the command `cat /path/to/credentials.json | base64`
+* `spring.cloud.gcp.project_id`: GCP project id
+* `spring.cloud.gcp.pubsub.enabled:` true/false whether pubsub is enabled \(defaults to false\)
+* `interledger.connector.pubsub.topics.fulfillment_event`: the GCP pub/sub topic name where fulfillment events should be published. If not set, fulfillments will not be published.
+* `interledger.connector.pubsub.topics.rejection_event`: the GCP pub/sub topic name where rejection events should be published. If not set, rejections will not be published. Note: you can publish both fulfillments and rejections to the same topic by using the same name.
+
+For docker, a sample configuration might look like:
+
+```yaml
+spring.cloud.gcp.credentials_encoded_key=<your base-64 encoded key>
+spring.cloud_gcp.project_id=my-gcp-account
+spring.cloud.gcp.pubsub.enabled
+interledger.connector.pubsub.topics.fulfillment.event=ilp-packet-events
+interledger.connector.pubsub.topics.rejection.event=ilp-packet-events
+```
+
 ### Spring Profiles
 
-Several Spring profiles are available to make it easier to enable certain features:
+Several Spring profiles are available to make it easier to enable certain features. Some commonly used profiles are:
 
-* **migrate**: runs database migrations \(via liquibase\) before connector is started
-* **migrate-only**: only runs database migrations \(via liquibase\) but does not start the connector \(application will terminate after migrations complete\)
-* **management**: enables the Spring management endpoints
-* **h2**: enables hypersonic in-memory SQL database
+* \*\*\*\*[**dev**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-dev.yaml)**:** single profile that includes other profiles for easily starting up a connector for dev purposes
+* \*\*\*\*[**migrate**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-migrate.yaml): runs database migrations \(via liquibase\) before connector is started
+* \*\*\*\*[**migrate-only**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-migrate-only.yaml): only runs database migrations \(via liquibase\) but does not start the connector \(application will terminate after migrations complete\)
+* \*\*\*\*[**management**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-management.yaml): enables the Spring management endpoints
+* \*\*\*\*[**h2**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-h2.yaml): enables hypersonic in-memory SQL database
+* \*\*\*\*[**postgres**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-postgres.yaml)**:** enables postgres driver with defaults \(must override url, username, pw\)
+
+A complete list of profiles can be found [here](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/).
 
 These profiles can be enabled by from the command-line using `-Dspring.profiles.active=h2,management,...`, via an environment variable `SPRING_PROFILES_ACTIVE=h2,management,...` or by adding the following to your application.yaml:
 
