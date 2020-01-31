@@ -6,10 +6,10 @@ description: Knobs and switches to adjust before your Connector starts up.
 
 Runtime configuration of this Connector can be obtained from a variety of potential sources when the connector starts up. This includes property files, environment variables, system properties and more, per the precedence defined by [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
-For example, any of the following configuration settings can be overridden at runtime by setting a system or environment variable, or by supplying a runtime switch to the JVM. For example: `-Dredis.host=localhost`.
+For example, any of the following configuration settings can be overridden at runtime by setting a system or environment variable, or by supplying a runtime switch to the JVM. For example: **`-Dredis.host=localhost`**.
 
 {% hint style="info" %}
-For advanced configurations with many overrides, it is recommend to place a file called `application.yml` onto the classpath.  Any values defined in this file will override the default values packaged with the application binary.
+For advanced configurations with many overrides, it is recommend to place a file called **`application.yml`** onto the classpath.  Any values defined in this file will override the default values packaged with the application binary.
 {% endhint %}
 
 ## Global Configuration Properties
@@ -18,12 +18,16 @@ This section details discrete Connector properties that can be configured, with 
 
 ### Root Properties
 
-* `nodeIlpAddress`: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured under accounts.
-* `globalPrefix`: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.
-* `adminPassword`: A plain-text password used to authenticate to the admin API.
-* `defaultJwtTokenIssuer`: The issuer identifier for any tokens generated in accordance with [IL-RFC-38](https://github.com/interledger/rfcs/pull/559) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
-* `minMessageWindowMillis`: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node.
-* `maxHoldTimeMillis`: \(Default: `30000`\) The amount of time that the Connector will wait  for a fulfillment/rejection. This is equivalent to outgoing link's timeout duration.
+{% hint style="info" %}
+The root configuration key for root properties is**`interledger.connector`**
+{% endhint %}
+
+* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured under accounts.
+* **`globalPrefix`**: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.
+* **`adminPassword`**: A plain-text password used to authenticate to the admin API.
+* **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [IL-RFC-38](https://github.com/interledger/rfcs/pull/559) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
+* **`minMessageWindowMillis`**: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node.
+* **`maxHoldTimeMillis`**: \(Default: `30000`\) The amount of time that the Connector will wait  for a fulfillment/rejection. This is equivalent to outgoing link's timeout duration.
 
 {% code title="application.yml" %}
 ```yaml
@@ -41,13 +45,17 @@ interledger:
 
 ### Properties: JKS Key Management
 
+{% hint style="info" %}
+The root configuration key for JKS properties is**`interledger.connector.keystore.jks`**
+{% endhint %}
+
 The Connector supports storing keys and secrets in a [Java Keystore](https://en.wikipedia.org/wiki/Java_KeyStore) \(JKS\) file. To enable this mode, the following properties are supported:
 
-* `enabled`: Enables or disables this keystore.
-* `filename`: A filename for the JKS file \(this file needs to be on the classpath\).
-* `password`: The password required to open the JKS file.
-* `secret0_alias`: The alias name of they secret that is used by the Connector to encrypt, decrypt, and HMAC all other secret values.
-* `secret0_password`: The password required to unlock the `secret0` alias in the Keystore.
+* **`enabled`**: Enables or disables this keystore.
+* **`filename`**: A filename for the JKS file \(this file needs to be on the classpath\).
+* **`password`**: The password required to open the JKS file.
+* **`secret0_alias`**: The alias name of they secret that is used by the Connector to encrypt, decrypt, and HMAC all other secret values.
+* **`secret0_password`**: The password required to unlock the `secret0` alias in the Keystore.
 
 {% code title="application.yml" %}
 ```yaml
@@ -67,39 +75,51 @@ interledger:
 
 ### Properties: KMS Key Management
 
+{% hint style="info" %}
+The root configuration key for Google KMS properties is**`interledger.connector.keystore.gcpkms`**
+{% endhint %}
+
 The Connector supports storing keys and secrets in various Key Management Services \(KMS\). Currently, [Google Cloud KMS](https://cloud.google.com/kms/) is supported. To enable this mode, the following properties are supported:
 
-* `enabled`: Enables or disables this keystore.
-* `locationId`: The GCP [locationId](https://cloud.google.com/kms/docs/locations) for your configured KMS instance.
+* **`enabled`**: Enables or disables this keystore.
+* **`locationId`**: The GCP [locationId](https://cloud.google.com/kms/docs/locations) for your configured KMS instance.
 
 {% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
     keystore:
-      enabled: false
-      locationId: global
+      gcpkms:
+        enabled: false
+        locationId: global
 ```
 {% endcode %}
 
 ### Properties: Enabled Features
 
-* `rateLimitingEnabled`: \(Default value: `true`\) Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced.
+{% hint style="info" %}
+The root configuration key for Enabled Feature properties is**`interledger.connector.enabledFeatures`**
+{% endhint %}
+
+* **`rateLimitingEnabled`**: Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced \(**Default**: `true`\).
+* **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-http-clients)" for more details.
 
 {% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
-    rateLimitingEnabled: true
+    enabledFeatures:
+      rateLimitingEnabled: true
+      localSpspFulfillmentsEnabled: true
 ```
 {% endcode %}
 
 ### Properties: Enabled Protocols
 
-* `ilpOverHttpEnabled`: \(Default value: `true`\) Determines if [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md) is enabled for Connector account peering.
-* `peerRoutingEnabled`: \(Default: `true`\) Determines if Connector-to-Connector \([CCP](https://github.com/interledger/rfcs/pull/455)\) protocol is enabled to allow this Connector to exchange routing table information with a peer.
-* `pingProtocolEnabled`: \(Default: `true`\) Determines if [ILP Ping](https://github.com/interledger/rfcs/pull/516) is enabled.
-* `ildcpEnabled`: \(Default: `true`\) Determines if [IL-DCP](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md) is enabled.
+* **`ilpOverHttpEnabled`**: \(Default value: **`true`**\) Determines if [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md) is enabled for Connector account peering.
+* **`peerRoutingEnabled`**: \(Default: **`true`**\) Determines if Connector-to-Connector \([CCP](https://github.com/interledger/rfcs/pull/455)\) protocol is enabled to allow this Connector to exchange routing table information with a peer.
+* **`pingProtocolEnabled`**: \(Default: **`true`**\) Determines if [ILP Ping](https://github.com/interledger/rfcs/pull/516) is enabled.
+* **`ildcpEnabled`**: \(Default: **`true`**\) Determines if [IL-DCP](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md) is enabled.
 
 {% code title="application.yml" %}
 ```yaml
@@ -119,9 +139,9 @@ interledger:
 
 Redis is used to track balances for every account operated by this Connector. The following properties may be used to configure Reds:
 
-* `spring.redis.host`: \(Default: `localhost`\) The host that Redis is operating on.
-* `spring.redis.port`: \(Default: `6379`\) The port that Redis is operating on. 
-* `spring.redis.password`: \(Default: none\) An encrypted password String containing the password that can be used access Redis.
+* **`spring.redis.host`**: \(Default: `localhost`\) The host that Redis is operating on.
+* **`spring.redis.port`**: \(Default: `6379`\) The port that Redis is operating on. 
+* **`spring.redis.password`**: \(Default: none\) An encrypted password String containing the password that can be used access Redis.
 
 In the `application.yml` file, a sample configuration might look like this:
 
@@ -143,12 +163,12 @@ For more details, read more in [Connector Crypto](../security-guide/crypto.md).
 
 Postgres can be used to store all non-balance tracking information, including account settings, routing tables, FX rates, and more.
 
-* `spring.datasource.url`: The datasource URL used to connect to a Postgres instance.
+* **`spring.datasource.url`**: The datasource URL used to connect to a Postgres instance.
 
 In addition, the following two properties can be used to supply the Connector with Authentication credentials to connect to the database:
 
-* `spring.datasource.username` \(Default: `postgres`\) The username to connect to the database as.
-* `spring.datasource.password` The password to connect to the database as.
+* **`spring.datasource.username`** \(Default: **`postgres`**\) The username to connect to the database as.
+* **`spring.datasource.password`** The password to connect to the database as.
 
 In the `application.yml` file, a sample configuration might look like this:
 
@@ -240,11 +260,11 @@ Configures how all underlying HTTP clients for Foreign Exchange \(FX\) will inte
 The root configuration key for Http FX clients is: **`interledger.connector.fx`**
 {% endhint %}
 
-* **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: `5`_\)._
-* **`keepAliveMinutes`**: The number of minutes to hold an inactive HTTP connection open before evicting the connection from the connection pool \(Default: `5 mins`\).
-* **`connectTimeoutMillis`**: Applied when connecting a TCP socket to the target host. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: `10000`\).
-* **`readTimeoutMillis`**: Applied to both the TCP socket and for individual read IO operations. A value of 0 means no timeout, otherwise values must be between 1 `Integer#MAX_VALUE` \(Default: `60000`\).
-* **`writeTimeoutMillis`**: Applied to individual write IO operations. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: `60000`\).
+* **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: **`5`**_\)._
+* **`keepAliveMinutes`**: The number of minutes to hold an inactive HTTP connection open before evicting the connection from the connection pool \(Default: **`5 mins`**\).
+* **`connectTimeoutMillis`**: Applied when connecting a TCP socket to the target host. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: **`10000`**\).
+* **`readTimeoutMillis`**: Applied to both the TCP socket and for individual read IO operations. A value of 0 means no timeout, otherwise values must be between 1 `Integer#MAX_VALUE` \(Default: **`60000`**\).
+* **`writeTimeoutMillis`**: Applied to individual write IO operations. A value of 0 means no timeout, otherwise values must be between 1 and `Integer#MAX_VALUE` \(Default: **`60000`**\).
 
 In the `application.yml` file, a sample configuration might look like this:
 
@@ -264,16 +284,20 @@ interledger:
 
 ### Properties: Keys and shared secrets
 
+{% hint style="info" %}
+The root configuration key for keys/secrets is: **`interledger.connector.keys`**
+{% endhint %}
+
 The connector uses key aliases and versions to determine what to use when handling encrypted shared secrets such as those for incoming and outgoing account settings links.
 
 Following keys are configurable:
 
-* `secret0`: Master encryption key for the connector.
-* `accountSettings`: Encryption key for account settings shared secrets.
+* **`secret0`**: Master encryption key for the connector.
+* **`accountSettings`**: Encryption key for account settings shared secrets.
 
 By default, the connector requires the shared secrets to be at least 32 bytes. To remove this requirement in non-production environments so that any secret length is allowed, set the following property to false:
 
-* `require32ByteSharedSecrets`: Set to `false` to allow smaller shared-secrets. \(Default: `true`\).
+* **`require32ByteSharedSecrets`**: Set to **`false`** to allow smaller shared-secrets. \(Default: **`true`**\).
 
 In the `application.yml` file, a sample configuration might look like this.
 
@@ -296,27 +320,60 @@ The connector makes use of keys to encrypt and decrypt shared secrets. By defaul
 
 ### Properties: GCP Pub/Sub
 
+{% hint style="info" %}
+The root configuration key for GCP Pub/Sub configuration is: **`interledger.connector.pubsub`**
+{% endhint %}
+
 Publishing fulfillment and/or rejection packets to GCP Pub/Sub can be enabled by setting the following properties:
 
-* `spring.cloud.gcp.credentials.location`: Path to GCP service account JSON. This service account should have permissions to publish to pubsub.
-* `spring.cloud.gcp.credentials.encoded_key`: An alternative way to provide the service account JSON as a base-64 encoded string instead of as a file location. For example, on linux, using the output of the command `cat /path/to/credentials.json | base64`
-* `spring.cloud.gcp.project_id`: GCP project id
-* `spring.cloud.gcp.pubsub.enabled:` true/false whether pubsub is enabled \(defaults to false\)
-* `interledger.connector.pubsub.topics.fulfillment_event`: The GCP pub/sub topic name where fulfillment events should be published. If not set, fulfillments will not be published.
-* `interledger.connector.pubsub.topics.rejection_event`: The GCP pub/sub topic name where rejection events should be published. If not set, rejections will not be published. Note: you can publish both fulfillments and rejections to the same topic by using the same name.
+* **`spring.cloud.gcp.credentials.location`**: Path to GCP service account JSON. This service account should have permissions to publish to pubsub.
+* **`spring.cloud.gcp.credentials.encoded_key`**: An alternative way to provide the service account JSON as a base-64 encoded string instead of as a file location. For example, on linux, using the output of the command `cat /path/to/credentials.json | base64`
+* **`spring.cloud.gcp.project_id`**: Your GCP project id.
+* **`spring.cloud.gcp.pubsub.enabled`** : `true` or `false` depending on whether pubsub is enabled \(Default: `false`\).
+* **`interledger.connector.pubsub.topics.fulfillment_event`**: The GCP pub/sub topic name where fulfillment events should be published. If not set, fulfillments will not be published \(Default: `ilp-events`\).
+* **`interledger.connector.pubsub.topics.rejection_event`**: The GCP pub/sub topic name where rejection events should be published. If not set, rejections will not be published. Note: you can publish both fulfillments and rejections to the same topic by using the same name \(Default: `ilp-events`\).
 
-For docker, a sample command might look like:
-
-```bash
-> docker run -p 8080:8080 \
-
--e spring.cloud.gcp.credentials_encoded_key=<from_your-gcp-account, b64 encoded> \
--e spring.cloud_gcp.project_id=<from_your-gcp-account>
--e spring.cloud.gcp.pubsub.enabled=true \
--e interledger.connector.pubsub.topics.fulfillment.event=ilp-packet-events \
--e interledger.connector.pubsub.topics.rejection.event=ilp-packet-events \
--it interledger4j/java-ilpv4-connector:nightly
+```yaml
+interledger:
+  connector:
+    pubsub:
+      topics:
+        fulfillment-event: ilp-events
+        rejection-event: ilp-events
+        
+spring:
+  cloud:
+    gcp:
+      ## must set project-id and credentials
+      project-id: {your-project-id}
+      credentials:
+        encoded-key: {your-base64-encoded-service-account-key-json}
+      pubsub:
+        enabled: true
 ```
+
+### Properties: Local SPSP Payment Fulfillment
+
+{% hint style="info" %}
+The root configuration key for Local SPSP Payment Fulfillment configuration is: **`interledger.connector.spsp`**
+{% endhint %}
+
+The Connector can be configured to fulfill SPSP payments that are destined for accounts in the Connector itself. This functionality can be enabled via the following properties:
+
+* **`server-secret`** A base64-encoded String of bytes used to derive any values used in encryption/decryption for SPSP.
+* **`addressPrefixSegment`**: A string that will be appended to the Connector's operating address in order to form an address prefix that the Connector will key off for fulfilling SPSP payments locally \(Default: `spsp`\).
+
+```yaml
+interledger:
+  connector:
+    enabledFeatures:
+      localSpspFulfillmentEnabled: true
+    spsp:
+      server-secret: aQLR5IWAGV2vKnBhnFFsl2cXOCh9u0IWz3PiA64KlJ8=
+      addressPrefixSegment: spsp
+```
+
+### Aggregate Profiles
 
 Several Spring profiles are available to make it easier to enable certain features. Some commonly used profiles are:
 
