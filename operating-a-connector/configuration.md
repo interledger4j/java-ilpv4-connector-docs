@@ -183,7 +183,7 @@ spring:
 {% endcode %}
 
 {% hint style="danger" %}
-If no security credentials are not required by your database, then the `username` and `password` properties may be omitted. **However, such a configuration is not recommended**.
+If security credentials are not required by your database, then the `username` and `password` properties may be omitted. **However, such a configuration is not recommended**.
 {% endhint %}
 
 ### Properties: HTTP Clients
