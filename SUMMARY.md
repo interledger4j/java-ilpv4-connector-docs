@@ -18,6 +18,7 @@
 
 * [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
 * [Connector Configuration Properties](operating-a-connector/configuration.md)
+* [Local STREAM Packet Termination](operating-a-connector/local-stream-packet-termination.md)
 
 ## API References
 

@@ -41,7 +41,7 @@ If you already have a Postgres database and Redis cache running, skip this secti
 To start a Postgres database, run:
 
 ```text
-docker run -d -p 5432:5432 postgres
+docker run -d -p 5432:5432 -e POSTGRES_DB=connector postgres
 ```
 
 To start a Redis cache, run:
@@ -63,15 +63,15 @@ The docker container needs to be configured with the postgres and redis connecti
 For example, here is how to configure and run the connector using separate env args:
 
 ```text
-docker run -p 8080:8080 -e spring.profiles.active=migrate -e redis.host=host.docker.internal -e spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/ -e spring.datasource.username=postgres -e spring.datasource.password=postgres -it interledger4j/java-ilpv4-connector:nightly
+docker run -p 8080:8080 -e spring.profiles.active=insecure,postgres,migrate -e redis.host=host.docker.internal -e spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/connector -e spring.datasource.username=postgres -e spring.datasource.password=postgres -it interledger4j/java-ilpv4-connector:nightly
 ```
 
 Or more conveniently, we can put all the same args into a file named connector.env with the following contents:
 
 ```text
-spring.profiles.active=migrate
+spring.profiles.active=insecure,postgres,migrate
 redis.host=host.docker.internal
-spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/
+spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/connector
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 ```
@@ -113,5 +113,21 @@ The equivalent env-file override would be:
 ```text
 interledger.connector.globalRoutingSettings.staticRoutes.0.targetPrefix=test.connie.alice
 interledger.connector.globalRoutingSettings.staticRoutes.0.peerAccountId=alice
+```
+
+### Configuring Java VM options with docker
+
+[Java JVM](https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html) options can be configured by setting the docker environment variable `_JAVA_OPTIONS`
+
+For example, to configure the Java VM with a 512mb max heap and G1 garbage collector:
+
+```text
+docker run -e _JAVA_OPTIONS="-XX:+UseG1GC -Xmx512m" -p 8080:8080 -it interledger4j/java-ilpv4-connector:nhartner
+```
+
+Or if using a ENV file, then add the following line to the file:
+
+```text
+_JAVA_OPTIONS=-XX:+UseG1GC -Xmx512m
 ```
 

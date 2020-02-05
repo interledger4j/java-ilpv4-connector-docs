@@ -369,7 +369,7 @@ interledger:
     enabledFeatures:
       localSpspFulfillmentEnabled: true
     spsp:
-      server-secret: aQLR5IWAGV2vKnBhnFFsl2cXOCh9u0IWz3PiA64KlJ8=
+      serverSecret: aQLR5IWAGV2vKnBhnFFsl2cXOCh9u0IWz3PiA64KlJ8=
       addressPrefixSegment: spsp
 ```
 
