@@ -22,7 +22,7 @@ This section details discrete Connector properties that can be configured, with 
 The configuration property prefix for root properties is**`interledger.connector`**
 {% endhint %}
 
-* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured using the [Admin API](../api-references/admin-api.md).
+* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured using the [Admin API](api-references/admin-api.md).
 * **`globalPrefix`**: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.
 * **`adminPassword`**: A plain-text password used to authenticate to the admin API.
 * **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [HTTP Auth Profiles RFC Proposal](https://github.com/interledger/rfcs/blob/master/proposals/0000-http-auth-profiles.md) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
@@ -156,7 +156,7 @@ spring:
 {% hint style="danger" %}
 The Redis password should be encrypted, especially if it will reside in a property file per the above example. To generate this encrypted value, you can use the Connector Crypto CLI. 
 
-For more details, read more in [Connector Crypto](../security-guide/crypto.md).
+For more details, read more in [Connector Crypto](security-guide/crypto.md).
 {% endhint %}
 
 #### Postgres Configuration

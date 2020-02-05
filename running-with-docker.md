@@ -84,7 +84,7 @@ docker run -p 8080:8080 --env-file ~/connector.env -it interledger4j/java-ilpv4-
 
 ## Configuration flags available via docker
 
-java-ilpv4-connector uses [Spring Boot for external configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config). Spring properties specific to the java-ilpv4-connector can be found under [Connector Configuration Properties](../operating-a-connector/configuration.md). Spring makes it easy to set/override a Spring property via environment variables. For example, a Spring property specified via yaml configuration like this
+java-ilpv4-connector uses [Spring Boot for external configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config). Spring properties specific to the java-ilpv4-connector can be found under [Connector Configuration Properties](configuration.md). Spring makes it easy to set/override a Spring property via environment variables. For example, a Spring property specified via yaml configuration like this
 
 ```text
 interledger:

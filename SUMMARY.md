@@ -14,11 +14,15 @@
 * [Balance Tracking](concepts/balance-tracking.md)
 * [Settlement](concepts/settlement-xrp-ledger.md)
 
-## Operating a Connector
+## Connector Configuration
 
-* [Persistence Initialization](operating-a-connector/ilpv4-connector-persistence.md)
-* [Connector Configuration Properties](operating-a-connector/configuration.md)
-* [Local STREAM Packet Termination](operating-a-connector/local-stream-packet-termination.md)
+* [Connector Configuration Properties](configuration.md)
+* [Persistence Initialization](ilpv4-connector-persistence.md)
+* [Local STREAM Packet Termination](local-stream-packet-termination.md)
+
+## Connector Operation
+
+* [Running with Docker](running-with-docker.md)
 
 ## API References
 
@@ -33,8 +37,6 @@
 
 ## Tutorials
 
-* [Running with Docker](tutorials/running-with-docker.md)
-* [Starting the Connector](tutorials/starting-the-connector.md)
 * [Peering: ILP-over-HTTP](tutorials/peering-ilp-over-http.md)
 * [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 

@@ -8,7 +8,7 @@ description: Describes how to locally terminate SPSP payments
 
 Normally, a Connector only forwards packets from one ILP node to another. Separate, non-Connector nodes typically handle the responsibilities of sending and receiving, often using the Simple Payment Setup Protocol \([SPSP](https://github.com/interledger/rfcs/blob/master/0009-simple-payment-setup-protocol/0009-simple-payment-setup-protocol.md)\). Combined with STREAM payments, receivers normally fulfill any received packets in order to satisfy the Interledger protocol. The following is a simple topology diagram to illustrate this:
 
-![A simple ILPv4 topology where the receiver fulfills all packets.](../.gitbook/assets/local-spsp-termination.png)
+![A simple ILPv4 topology where the receiver fulfills all packets.](.gitbook/assets/local-spsp-termination.png)
 
 In some infrastructures, the extra ILPv4 Prepare call from the Connector to the SPSP receiver is redundant when the accounts actually live inside of the Connector. Especially for very simple SPSP Receivers, it is often more economical to simply have the Connector fulfill any valid STREAM packets, as opposed to forwarding them to a separate runtime.
 
