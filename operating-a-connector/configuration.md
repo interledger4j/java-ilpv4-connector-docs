@@ -19,15 +19,15 @@ This section details discrete Connector properties that can be configured, with 
 ### Root Properties
 
 {% hint style="info" %}
-The root configuration key for root properties is**`interledger.connector`**
+The configuration property prefix for root properties is**`interledger.connector`**
 {% endhint %}
 
-* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured under accounts.
+* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured using the [Admin API](../api-references/admin-api.md).
 * **`globalPrefix`**: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.
 * **`adminPassword`**: A plain-text password used to authenticate to the admin API.
-* **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [IL-RFC-38](https://github.com/interledger/rfcs/pull/559) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
+* **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [HTTP Auth Profiles RFC Proposal](https://github.com/interledger/rfcs/blob/master/proposals/0000-http-auth-profiles.md) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
 * **`minMessageWindowMillis`**: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node.
-* **`maxHoldTimeMillis`**: \(Default: `30000`\) The amount of time that the Connector will wait  for a fulfillment/rejection. This is equivalent to outgoing link's timeout duration.
+* **`maxHoldTimeMillis`**: \(Default: `30000`\) The amount of time that the Connector will wait for a fulfillment/rejection. This value is used to set any outgoing link's timeout duration.
 
 {% code title="application.yml" %}
 ```yaml
@@ -43,10 +43,48 @@ interledger:
 ```
 {% endcode %}
 
+### Properties: Enabled Features
+
+{% hint style="info" %}
+The configuration property prefix for Enabled Features is**`interledger.connector.enabledFeatures`**
+{% endhint %}
+
+* **`rateLimitingEnabled`**: Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced \(**Default**: `true`\).
+* **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-http-clients)" for more details.
+
+{% code title="application.yml" %}
+```yaml
+interledger:
+  connector:
+    enabledFeatures:
+      rateLimitingEnabled: true
+      localSpspFulfillmentsEnabled: true
+```
+{% endcode %}
+
+### Properties: Enabled Protocols
+
+* **`ilpOverHttpEnabled`**: Determines if [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md) is enabled for Connector account peering \(Default: **`true`**\).
+* **`peerRoutingEnabled`**: Determines if Connector-to-Connector \([CCP](https://github.com/interledger/rfcs/pull/455)\) protocol is enabled to allow this Connector to exchange routing table information with a peer \(Default: **`true`**\).
+* **`pingProtocolEnabled`**: Determines if [ILP Ping](https://github.com/interledger/rfcs/pull/516) is enabled \(Default: **`true`**\).
+* **`ildcpEnabled`**: Determines if [IL-DCP](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md) is enabled \(Default: **`true`**\).
+
+{% code title="application.yml" %}
+```yaml
+interledger:
+  connector:
+    enabledProtocols:
+      ilpOverHttpEnabled: true
+      peerRoutingEnabled: true
+      pingProtocolEnabled: true
+      ildcpEnabled: true
+```
+{% endcode %}
+
 ### Properties: JKS Key Management
 
 {% hint style="info" %}
-The root configuration key for JKS properties is**`interledger.connector.keystore.jks`**
+The configuration property prefix for JKS properties is**`interledger.connector.keystore.jks`**
 {% endhint %}
 
 The Connector supports storing keys and secrets in a [Java Keystore](https://en.wikipedia.org/wiki/Java_KeyStore) \(JKS\) file. To enable this mode, the following properties are supported:
@@ -76,7 +114,7 @@ interledger:
 ### Properties: KMS Key Management
 
 {% hint style="info" %}
-The root configuration key for Google KMS properties is**`interledger.connector.keystore.gcpkms`**
+The configuration property prefix for Google KMS properties is**`interledger.connector.keystore.gcpkms`**
 {% endhint %}
 
 The Connector supports storing keys and secrets in various Key Management Services \(KMS\). Currently, [Google Cloud KMS](https://cloud.google.com/kms/) is supported. To enable this mode, the following properties are supported:
@@ -92,44 +130,6 @@ interledger:
       gcpkms:
         enabled: false
         locationId: global
-```
-{% endcode %}
-
-### Properties: Enabled Features
-
-{% hint style="info" %}
-The root configuration key for Enabled Feature properties is**`interledger.connector.enabledFeatures`**
-{% endhint %}
-
-* **`rateLimitingEnabled`**: Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced \(**Default**: `true`\).
-* **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-http-clients)" for more details.
-
-{% code title="application.yml" %}
-```yaml
-interledger:
-  connector:
-    enabledFeatures:
-      rateLimitingEnabled: true
-      localSpspFulfillmentsEnabled: true
-```
-{% endcode %}
-
-### Properties: Enabled Protocols
-
-* **`ilpOverHttpEnabled`**: \(Default value: **`true`**\) Determines if [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md) is enabled for Connector account peering.
-* **`peerRoutingEnabled`**: \(Default: **`true`**\) Determines if Connector-to-Connector \([CCP](https://github.com/interledger/rfcs/pull/455)\) protocol is enabled to allow this Connector to exchange routing table information with a peer.
-* **`pingProtocolEnabled`**: \(Default: **`true`**\) Determines if [ILP Ping](https://github.com/interledger/rfcs/pull/516) is enabled.
-* **`ildcpEnabled`**: \(Default: **`true`**\) Determines if [IL-DCP](https://github.com/interledger/rfcs/blob/master/0031-dynamic-configuration-protocol/0031-dynamic-configuration-protocol.md) is enabled.
-
-{% code title="application.yml" %}
-```yaml
-interledger:
-  connector:
-    enabledProtocols:
-      ilpOverHttpEnabled: true
-      peerRoutingEnabled: true
-      pingProtocolEnabled: true
-      ildcpEnabled: true
 ```
 {% endcode %}
 
@@ -193,7 +193,7 @@ If security credentials are not required by your database, then the `username` a
 Configures how all underlying HTTP clients will interact with any Settlement Engine service. Currently, the Settlement Engine client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
 {% hint style="info" %}
-The root configuration key for Settlement Engine clients is: **`interledger.connector.settlementEngines.connectionDefaults`**
+The configuration property prefix for Settlement Engine clients is: **`interledger.connector.settlementEngines.connectionDefaults`**
 {% endhint %}
 
 * **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: `5`_\)._
@@ -223,7 +223,7 @@ interledger:
 Configures how all underlying HTTP clients will interact with any peer using [Ilp-over-Http](https://github.com/interledger/rfcs/blob/master/0035-ilp-over-http/0035-ilp-over-http.md). Currently, the Ilp-over-Http client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
 {% hint style="info" %}
-The root configuration key for Settlement Engine clients is: **`interledger.connector.settlementEngines.ilpOverHttp`**
+The configuration property prefix for ILP-over-HTTP clients is: **`interledger.connector.settlementEngines.ilpOverHttp`**
 {% endhint %}
 
 * **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: `5`_\)._
@@ -257,7 +257,7 @@ interledger:
 Configures how all underlying HTTP clients for Foreign Exchange \(FX\) will interact with any peer. Currently, the FX client creates a default connection pool holding up to 5 idle connections which will be evicted after 5 minutes of inactivity.
 
 {% hint style="info" %}
-The root configuration key for Http FX clients is: **`interledger.connector.fx`**
+The configuration property prefix for Http FX clients is:**`interledger.connector.fx`**
 {% endhint %}
 
 * **`maxIdleConnections`**: The maximum number of idle connections that the underlying OkHttp client will hold open with no traffic flowing through them \(Default: **`5`**_\)._
@@ -285,7 +285,7 @@ interledger:
 ### Properties: Keys and shared secrets
 
 {% hint style="info" %}
-The root configuration key for keys/secrets is: **`interledger.connector.keys`**
+The configuration property prefix for keys/secrets is:**`interledger.connector.keys`**
 {% endhint %}
 
 The connector uses key aliases and versions to determine what to use when handling encrypted shared secrets such as those for incoming and outgoing account settings links.
@@ -321,7 +321,7 @@ The connector makes use of keys to encrypt and decrypt shared secrets. By defaul
 ### Properties: GCP Pub/Sub
 
 {% hint style="info" %}
-The root configuration key for GCP Pub/Sub configuration is: **`interledger.connector.pubsub`**
+The configuration property prefix for GCP Pub/Sub configuration is: **`interledger.connector.pubsub`**
 {% endhint %}
 
 Publishing fulfillment and/or rejection packets to GCP Pub/Sub can be enabled by setting the following properties:
@@ -355,7 +355,7 @@ spring:
 ### Properties: Local SPSP Payment Fulfillment
 
 {% hint style="info" %}
-The root configuration key for Local SPSP Payment Fulfillment configuration is: **`interledger.connector.spsp`**
+The configuration property prefix for Local SPSP Payment Fulfillment configuration is: **`interledger.connector.spsp`**
 {% endhint %}
 
 The Connector can be configured to fulfill SPSP payments that are destined for accounts in the Connector itself. This functionality can be enabled via the following properties:
