@@ -49,6 +49,7 @@ interledger:
 The configuration property prefix for Enabled Features is**`interledger.connector.enabledFeatures`**
 {% endhint %}
 
+* **`require32ByteSharedSecrets`**: Ensure that any shared secret values are at least 32 bytes, for security purposes. In non-production modes, this setting may be set to `false`, but in general it should always be `true` . \(**Default** `true`\).
 * **`rateLimitingEnabled`**: Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced \(**Default**: `true`\).
 * **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-http-clients)" for more details.
 
@@ -57,6 +58,7 @@ The configuration property prefix for Enabled Features is**`interledger.connecto
 interledger:
   connector:
     enabledFeatures:
+      require32ByteSharedSecrets: true
       rateLimitingEnabled: true
       localSpspFulfillmentsEnabled: true
 ```
