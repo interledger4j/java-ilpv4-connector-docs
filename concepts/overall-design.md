@@ -9,7 +9,7 @@ description: >-
 
 ## Account Tracking
 
-In order to efficiently forward ILPv4 packets between its Peers, a Router must track these relationships. Read more about how this implementation tracks account relationships in [Account Model](peering-account-model.md).2
+In order to efficiently forward ILPv4 packets between its Peers, a Router must track these relationships. Read more about how this implementation tracks account relationships in [Account Model](peering-account-model.md).
 
 ## Packet Switching
 
