@@ -12,7 +12,7 @@ For example, to verify connectivity from Alice to Bob, the `test.alice.peter` ac
 
 This guide assumes the following network topology:
 
-![](../.gitbook/assets/ilp-over-http%20%283%29.svg)
+![](.gitbook/assets/ilp-over-http%20%283%29.svg)
 
 ## Considerations
 
@@ -48,7 +48,7 @@ For simplicity, this guide makes the following assumptions:
     * **URL**: n/a
 
 {% hint style="success" %}
-Reference the [Connector Admin API](../api-references/admin-api.md) documentation for more details about actual payloads and their meanings.
+Reference the [Connector Admin API](api-references/admin-api.md) documentation for more details about actual payloads and their meanings.
 {% endhint %}
 
 ## Configuration on Alice
@@ -88,7 +88,7 @@ The following payload illustrates the details of this account:
 {% hint style="danger" %}
 Note that the `shared_secret` above is encrypted using default keys packaged with the Connector in a Java Keystore \(JKS\) file meant for illustration purposes only.  The decrypted shared secret value is **`shh`** but in a real deployment, you _should_ use a strong shared secret and a new set of keys.   
   
-See [Connector Security](../security-guide/crypto.md) for more details.
+See [Connector Security](security-guide/crypto.md) for more details.
 {% endhint %}
 
 ### Create Account: \`peter\`
