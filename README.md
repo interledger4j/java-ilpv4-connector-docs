@@ -6,13 +6,13 @@ description: A Java implementation of an Interledger Connector supporting ILPv4.
 
 This site contains documentation for the Java implementation of an Interledger Router.
 
-**Github project source code**: [https://github.com/sappenin/java-ilpv4-connector](https://github.com/sappenin/java-ilpv4-connector)  
-**Docs source code**: [https://github.com/sappenin/java-ilpv4-connector-docs](https://github.com/sappenin/java-ilpv4-connector-docs)  
-**Documentation Website**: [https://java-connector.ilpv4.dev](https://java-connector.ilpv4.dev)
+**Github project source code**: [https://github.com/interledger4j/ilpv4-connector](https://github.com/interledger4j/ilpv4-connector)  
+**Docs source code**: [https://github.com/interledger4j/java-ilpv4-connector-docs](https://github.com/interledger4j/java-ilpv4-connector-docs)  
+**Documentation Website**: [https://connector.interledger4j.dev/](https://connector.interledger4j.dev/)
 
 ## Overview
 
-This implementation is a high-performance Interledger Connector that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric.
+This implementation is a high-performance Interledger Connector that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric. 
 
 This implementation supports the following features:
 
