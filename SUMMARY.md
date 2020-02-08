@@ -24,7 +24,7 @@
 
 * [Running with Docker](running-with-docker.md)
 * [Peering: ILP-over-HTTP](peering-ilp-over-http.md)
-* [Settlement: XRP Ledger](settlement-xrp-ledger.md)
+* [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 
 ## API References
 

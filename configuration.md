@@ -22,59 +22,26 @@ This section details discrete Connector properties that can be configured, with 
 The configuration property prefix for root properties is**`interledger.connector`**
 {% endhint %}
 
-* **Required Properties**
-  * **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured using the [Admin API](api-references/admin-api.md).
-  * **`adminPassword`**: A plain-text password used to authenticate to the admin API.
-* **Optional Properties**
-  * **`globalPrefix`**: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.\(**Default**: `g`\).
-  * **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [HTTP Auth Profiles RFC Proposal](https://github.com/interledger/rfcs/blob/master/proposals/0000-http-auth-profiles.md) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
-  * **`minMessageWindowMillis`**: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node \(**Default**: `1000`\).
-  * **`maxHoldTimeMillis`**:  The amount of time that the Connector will wait for a fulfillment/rejection. This value is used to set any outgoing link's timeout duration \(**Default**: `30000`\).
+* **`nodeIlpAddress`**: ILP address of the connector. This property can be omitted if an account with relation `parent` is configured using the [Admin API](api-references/admin-api.md).
+* **`globalPrefix`**: The global prefix for the Connector. For production environments, this should be `g`. For test environments, consider `test`.
+* **`adminPassword`**: A plain-text password used to authenticate to the admin API.
+* **`defaultJwtTokenIssuer`**: The issuer identifier for any tokens generated in accordance with [HTTP Auth Profiles RFC Proposal](https://github.com/interledger/rfcs/blob/master/proposals/0000-http-auth-profiles.md) \(i.e., `JWT_HS_256` and `JWT_RS_256`\).
+* **`minMessageWindowMillis`**: Default \(`1000`\) The minimum time the connector wants to budget for getting a message to the accounts its trading on. Budget is mainly to cover the latency to send the fulfillment packet to the downstream node.
+* **`maxHoldTimeMillis`**: \(Default: `30000`\) The amount of time that the Connector will wait for a fulfillment/rejection. This value is used to set any outgoing link's timeout duration.
 
 {% code title="application.yml" %}
 ```yaml
 interledger:
   connector:
+    # For dev purposes this is fine, but not for real use-cases. Encrypt this value instead.
+    adminPassword: password
     nodeIlpAddress: test.example
-    adminPassword: shh # For prod usage, encrypt this value instead.
     globalPrefix: test
     defaultJwtTokenIssuer: https://connector.example.com
     minMessageWindowMillis: 1000
     maxHoldTimeMillis: 30000
 ```
 {% endcode %}
-
-### Properties: Global Routing Settings
-
-{% hint style="info" %}
-The configuration property prefix for Global Routing Settings is**`interledger.connector.globalRoutingSettings`**
-{% endhint %}
-
-* **Required Properties**
-  * **`routingSecret`**: A 32-byte secret seed value used to authenticate routing-table updates.
-* **Optional Properties**
-  * **`localAccountAddressSegment`**: An ILP address segment that will be used to route packets to any local accounts defined in the Connector. For example, if an account exists in the Connector with id of `alice`, then nodes wanting to send packets to that account would use the ILP address `{connector-operator-address}.accounts.alice`. Typically this will be used by the Connector to support IL-DCP, but will also be used to make routing decisions for any local accounts that might connect to the Connector. For example, `g.connector.accounts.alice.bob` would route to `alice`, allowing that node to figure out how to route to "bob" \(**Default**: `accounts`\).
-  * **`defaultRoute`**: An optionally-defined accountId that should be used as the default route for all un-routed traffic. If empty, the default route is disabled.
-  * **`routeBroadcastEnabled`**: Whether to broadcast known routes \(**Default**: `true`\).
-  * **`useParentForDefaultRoute`**: Determines if the parent-account should be used as the default route \(**Default**: `false`\).
-  * **`routeBroadcastInterval`**: Frequency, in milliseconds, at which the connector broadcasts its routes to adjacent connectors \(**Default**: `30000`\).
-  * **`routeCleanupInterval`**: The frequency, in milliseconds, at which the connector checks for expired routes \(**Default**: `30000`\).
-  * **`routeExpiry`**: The maximum age, in milliseconds, of a route provided by this connector \(**Default**: `30000`\).
-  * **`maxEpochsPerRoutingTable`**: The maximum number of epochs per routing table update \(**Default**: `50`\).
-
-```yaml
-interledger:
-  connector:
-    globalRoutingSettings:
-      routingSecret: shh # For prod usage, encrypt this value instead.
-      routeBroadcastEnabled: true
-      useParentForDefaultRoute: true
-      defaultRoute: parent-account
-      routeBroadcastInterval: 30000
-      routeCleanupInterval: 1000
-      routeExpiry: 30000
-      maxEpochsPerRoutingTable: 50
-```
 
 ### Properties: Enabled Features
 
@@ -138,9 +105,11 @@ interledger:
       jks:
         enabled: true
         filename: crypto/crypto.p12
-        password: password # For prod usage, encrypt this value instead.
+        # For dev purposes this is fine, but not for real use-cases. Encrypt this value instead.
+        password: password
         secret0_alias: secret0
-        secret0_password: password # For prod usage, encrypt this value instead.
+        # For dev purposes this is fine, but not for real use-cases. Encrypt this value instead.
+        secret0_password: password
 ```
 {% endcode %}
 
@@ -345,7 +314,7 @@ interledger:
         alias: secret0
         version: 1
       accountSettings:
-        alias: accounts
+        alias: secret0
         version: 1
 ```
 
@@ -402,8 +371,7 @@ interledger:
     enabledFeatures:
       localSpspFulfillmentEnabled: true
     spsp:
-      # For prod usage, encrypt this value instead.
-      serverSecret: aQLR5IWAGV2vKnBhnFFsl2cXOCh9u0IWz3PiA64KlJ8= 
+      serverSecret: aQLR5IWAGV2vKnBhnFFsl2cXOCh9u0IWz3PiA64KlJ8=
       addressPrefixSegment: spsp
 ```
 

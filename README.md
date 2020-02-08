@@ -12,7 +12,7 @@ This site contains documentation for the Java implementation of an Interledger R
 
 ## Overview
 
-This implementation is a high-performance Interledger Connector that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric. 
+This implementation is a high-performance Interledger Connector that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric.
 
 This implementation supports the following features:
 
