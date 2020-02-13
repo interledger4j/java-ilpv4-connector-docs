@@ -114,7 +114,24 @@ interledger:
 ```
 {% endcode %}
 
-### Properties: JKS Key Management
+### Properties: Key Management
+
+{% hint style="info" %}
+The configuration property prefix for JKS properties is**`interledger.connector.keystore`**
+{% endhint %}
+
+* **`primary`**: Indicates the primary keystore type. Acceptable values are `gcpkms` and `jks` \(**Default**: `jks`\).
+
+{% code title="application.yml" %}
+```yaml
+interledger:
+  connector:
+    keystore:
+      primary: jks
+```
+{% endcode %}
+
+#### Properties: JKS Key Management
 
 {% hint style="info" %}
 The configuration property prefix for JKS properties is**`interledger.connector.keystore.jks`**
@@ -142,7 +159,7 @@ interledger:
 ```
 {% endcode %}
 
-### Properties: KMS Key Management
+#### Properties: GCP KMS Key Management
 
 {% hint style="info" %}
 The configuration property prefix for Google KMS properties is**`interledger.connector.keystore.gcpkms`**
