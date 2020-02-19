@@ -23,8 +23,8 @@
 ## Connector Operation
 
 * [Running with Docker](running-with-docker.md)
-* [Peering: ILP-over-HTTP](peering-ilp-over-http.md)
-* [Settlement: XRP Ledger](settlement-xrp-ledger.md)
+* [Peering: ILP-over-HTTP](tutorials/peering-ilp-over-http.md)
+* [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 * [Running on GCP](running-on-gcp.md)
 
 ## Security Guide

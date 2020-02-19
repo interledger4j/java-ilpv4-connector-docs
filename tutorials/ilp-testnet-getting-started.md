@@ -73,7 +73,7 @@ Here's an example response payload for reference:
 ```
 
 {% hint style="info" %}
-The generated `accountId` can be found at `"accountId"`, and your generated auth token can be found at `"customSettings" -> "ilpOverHttp.incoming.simple.auth_token".`
+The generated **`accountId`** ``can be found at **`accountId`**, and your generated auth token can be found at **`"customSettings" -> "ilpOverHttp.incoming.simple.auth_token"`**`.`
 {% endhint %}
 
 ## 2. Make it Rain
@@ -86,7 +86,7 @@ The TestNet has a rainmaker accounts that you can use to send yourself some faux
 ```
 
 {% hint style="warning" %}
-In the call above, make sure to replace `{your-account-id}` with your own `accountId` created above.
+In the call above, make sure to replace **`{your-account-id}`** with your own `accountId` created above.
 {% endhint %}
 
 ## 3. Check Your Balance
@@ -100,7 +100,7 @@ To see how much money is in your account, try the following call:
 ```
 
 {% hint style="warning" %}
-Be sure to replace `{auth_token}` above with the auth token returned when you generated your account!
+Be sure to replace **`{auth_token}`** above with the auth token returned when you generated your account!
 {% endhint %}
 
 This request will return JSON similar to the JSON below:
@@ -134,7 +134,7 @@ Spread the love to a friend by making a payment to a payment pointer. In this ca
 ```
 
 {% hint style="warning" %}
-Be sure to replace `{your-account-id}` and `{auth_token}` with the values returned in Step 1!
+Be sure to replace **`{your-account-id}`** and **`{auth_token}`**with the values returned in Step 1!
 {% endhint %}
 
 This request will return JSON similar to the JSON below:
@@ -149,11 +149,11 @@ This request will return JSON similar to the JSON below:
 ```
 
 {% hint style="info" %}
-"originalAmount" is the amount that you wanted to send.
+**`originalAmount`** is the amount that you wanted to send.
 
-"amountDelivered" is the amount your friend actually received.
+**`amountDelivered`** is the amount your friend actually received.
 
-"amountSent" is the amount that actually got sent to your friend.
+**`amountSent`** is the amount that actually got sent to your friend.
 {% endhint %}
 
 ## 5. Get Paid
