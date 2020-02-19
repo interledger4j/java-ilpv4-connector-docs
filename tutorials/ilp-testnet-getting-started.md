@@ -28,9 +28,13 @@ Create a new account using the following command:
 }'
 ```
 
-This request will return a payload that contains your `accountId` , an auth token which you will use to authenticate to the connector, as well as a [Payment Pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
+{% hint style="info" %}
+Super-powers are granted to anyone who asks - after all, this is just a Testnet!
+{% endhint %}
 
-The request above will return a a JSON response similar to the JSON below. 
+The above request will return a payload that contains your `accountId` , an auth token which you will use to authenticate to the connector, as well as a [Payment Pointer](https://paymentpointers.org/) that can be used to receive value in your test account.
+
+Here's an example response payload for reference:
 
 ```text
 {
@@ -70,10 +74,6 @@ The request above will return a a JSON response similar to the JSON below.
 
 {% hint style="info" %}
 The generated `accountId` can be found at `"accountId"`, and your generated auth token can be found at `"customSettings" -> "ilpOverHttp.incoming.simple.auth_token".`
-{% endhint %}
-
-{% hint style="info" %}
-Super-powers are granted to anyone who asks - after all, this is just a Testnet!
 {% endhint %}
 
 ## 2. Make it Rain
