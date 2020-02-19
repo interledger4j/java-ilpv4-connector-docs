@@ -23,13 +23,9 @@
 ## Connector Operation
 
 * [Running with Docker](running-with-docker.md)
-* [Peering: ILP-over-HTTP](peering-ilp-over-http.md)
-* [Settlement: XRP Ledger](settlement-xrp-ledger.md)
+* [Peering: ILP-over-HTTP](tutorials/peering-ilp-over-http.md)
+* [Settlement: XRP Ledger](tutorials/settlement-xrp-ledger.md)
 * [Running on GCP](running-on-gcp.md)
-
-## API References
-
-* [Admin API](api-references/admin-api.md)
 
 ## Security Guide
 
@@ -37,6 +33,14 @@
 * [test-jwt.io](security-guide/test-jwt.io.md)
 * [Generating Keys](security-guide/undefined.md)
 * [Spring Boot with TLS](security-guide/tls.md)
+
+## API References
+
+* [Admin API](api-references/admin-api.md)
+
+## Tutorials
+
+* [ILP TestNet: Getting Started](tutorials/ilp-testnet-getting-started.md)
 
 ## Contributing
 
