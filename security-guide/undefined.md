@@ -18,11 +18,44 @@ This encoding indicates that the string represents and encoded value \(because i
 
 ## Running the CLI
 
-To execute the CLI, perform the following steps:
+Crypto CLI is available as a docker image. To run the CLI via docker, run:
 
-1. Checkout the code and navigate to this director.
-2. Build the project: `> mvn clean install`
-3. Run the CLI: `> java -jar /target/ilpv4-connector-crypto-0.1.0-SNAPSHOT.jar`
+```text
+docker run -it --rm interledger4j/crypto-cli
+```
+
+This will run using the default embedded JKS keystore which is only meant dev purposes. Here's an example of a CLI interaction with the to encrypt the secret `myEncryptionSecret`:
+
+```bash
+crypto-cli:> e mySecretToEncrypt
+Encoded Encrypted Secret: enc:JKS:crypto.p12:secret0:1:aes_gcm:AAAADAaP9_AwM...
+```
+
+To see all the available commands and config flags, run the  `help` command inside the crypto cli.
+
+### Using Custom JKS Keystore
+
+To run with your own custom JKS keystore it must be mounted as as volume the docker container. For example, if you had a keystore file on your local machine under `/keystores/mykeystore.p12` you would run the container using: 
+
+```bash
+docker run -it --rm  -v /keystores/mykeystore.p12:/app/resources/mykeystore.p12 \
+interledger4j/crypto-cli
+```
+
+Then in the CLI, you would switch the keystore to `mykeystore.p12`:
+
+```bash
+crypto-cli:> jks-filename mykeystore.p12
+```
+
+### Using GCP KMS
+
+If you want to use GCP KMS instead of JKS, you must provide your [Google Service Account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) file to the crypto-cli container. For example, if I generated and downloaded my service account key file to `/gcp/my-service-account.json` then I would provide my key file via the following docker command:
+
+```bash
+docker run -it --rm -v /gcp/my-service-account.json:/app/gcp-credentials.json \
+interledger4j/crypto-cli
+```
 
 ## Create a Keystore
 
