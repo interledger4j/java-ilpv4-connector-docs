@@ -28,7 +28,7 @@ Example settlement layer systems include:
 
 The Java ILP Connector [build system](https://circleci.com/gh/sappenin/java-ilpv4-connector) currently runs a nightly integration test to exercise and validate the its ability to interact with settlement engines that are compatible with IL-RFC-40 \[TODO Link\]. These tests simulate a payment made from a hypothetical user `paul` who pings a connector identified as `bob` by traversing the `alice` connector. The inverse flow is also tested \(`peter` pings `alice`\) allowing settlement payments to 
 
-![This topology allows Paul to bing the &quot;Bob&quot; Connector, and Peter to ping the Alice Connector.](../.gitbook/assets/settlementenginetopologies%20%281%29.svg)
+![This topology allows Paul to ping the &quot;Bob&quot; Connector, and Peter to ping the Alice Connector.](../.gitbook/assets/settlementenginetopologies%20%281%29.svg)
 
 In this setup, the `alice` and `bob` connectors are able to clear payments using Interledger, accruing bilateral debt between themselves. When this debt reaches some threshold agreed between Alice and Bob, their Connectors "settle" this debt by making a payment on the XRP Ledger. 
 
