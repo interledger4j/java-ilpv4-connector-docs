@@ -9,8 +9,8 @@ description: Create an account on the ILP TestNet to send and receive money.
 This tutorial describes how to:
 
 1. Create an account in at [xpring.io](https://xpring.io).
-2.  Interledger wallet.
-3. Fund your account using the TestNet Rainmaker \(our version of a "faucet"\).
+2. Fund your account using the TestNet Rainmaker \(our version of a "faucet"\).
+3. Grab an API token.
 4. Check your balance.
 5. Pay a Friend.
 6. Get paid.
@@ -35,7 +35,7 @@ In the Xpring Wallet, you can get an API token by pressing the "Create a Token" 
 Every time you push the "**Create a Token**" button, any previously created tokens are invalidated, so if you click this button, **anything using an older token will stop working**.
 {% endhint %}
 
-## 3. Check Your Balance
+## 4. Check Your Balance
 
 To see how much money is in your account, try the following call:
 
@@ -65,7 +65,7 @@ This request will return a JSON payload similar to this one:
 }
 ```
 
-## 4. Pay a Friend
+## 5. Pay a Friend
 
 Spread the love to a friend by making a payment to a payment pointer. In this case, try sending value to a different wallet on the testnet. Maybe someone at [https://rafiki.money](https://rafiki.money).
 
@@ -104,7 +104,7 @@ This request will return JSON similar to the JSON below, representing 1,000 XRP 
 **`amountSent`** is the amount that actually got sent to your friend.
 {% endhint %}
 
-## 5. Get Paid
+## 6. Get Paid
 
-Try sending money to your Xpring waller from different wallet, like [rafiki.money](https://rafiki.money). Then, check your balance, either programmatically or in the UI, to see that the money has arrived in your account. 
+Try sending money back to your Xpring wallet using the PaymentPointer in the Xpring wallet UI. Then, check your balance, either programmatically or in the UI, to see that the money has arrived in your account. 
 

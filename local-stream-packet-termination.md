@@ -14,9 +14,9 @@ In some infrastructures, the extra ILPv4 Prepare call from the Connector to the 
 
 ## Enabling Local Packet Termination
 
-To enable this feature, it is necessary to configure three settings in the Connector, each of which is defined in a configuration property as outlined in [Properties: Local SPSP Termination](local-stream-packet-termination.md).
+To enable this feature, it is necessary to configure three settings in the Connector, each of which is defined in a configuration property as outlined in [Properties: Local SPSP Termination](configuration.md#properties-local-spsp-payment-fulfillment).
 
-First, Local STREAM termination must be enabled. Next, the [Server Secret](https://github.com/interledger4j/ilp-spsp-server/blob/master/src/main/resources/application-dev.yml#L10) for the SPSP receiver must be specified. 
+First, Local STREAM termination must be enabled. Next, the `serverSecret` for the SPSP receiver must be specified. 
 
 Finally, the `addressPrefixSegment` must be specified. This last setting determines which ILP destination address prefixes will be intercepted by the connector and routed to the local SPSP/STREAM fulfillment endpoint. The default setting here is `spsp`, which means any address matching `{nodeIlpAddress}.spsp` will be routed to the local termination endpoint. 
 

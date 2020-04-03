@@ -82,7 +82,7 @@ The configuration property prefix for Enabled Features is**`interledger.connecto
 
 * **`require32ByteSharedSecrets`**: Ensure that any shared secret values are at least 32 bytes, for security purposes. In non-production modes, this setting may be set to `false`, but in general it should always be `true` . \(**Default** `true`\).
 * **`rateLimitingEnabled`**: Determines if rate-limiting is applied to any Connector accounts. If enabled, each account's `maxPacketsPerSecond` setting will be enforced \(**Default**: `true`\).
-* **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-http-clients)" for more details.
+* **`localSpspFulfillmentsEnabled`** : Determines if this Connector will attempt to fulfill SPSP payments locally as opposed to forwarding them out to an upstream peer \(**Default**: `false`\). See "[Properties: Local SPSP Fulfillment](configuration.md#properties-local-spsp-payment-fulfillment)" for more details.
 
 {% code title="application.yml" %}
 ```yaml
@@ -408,7 +408,7 @@ The configuration property prefix for Local SPSP Payment Fulfillment configurati
 
 The Connector can be configured to fulfill SPSP payments that are destined for accounts in the Connector itself. This functionality can be enabled via the following properties:
 
-* **`server-secret`** A base64-encoded String of bytes used to derive any values used in encryption/decryption for SPSP.
+* **`serverSecret`** A base64-encoded String of bytes used to derive any values used in encryption/decryption for SPSP.
 * **`addressPrefixSegment`**: A string that will be appended to the Connector's operating address in order to form an address prefix that the Connector will key off for fulfilling SPSP payments locally \(Default: `spsp`\).
 
 ```yaml
