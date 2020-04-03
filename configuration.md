@@ -432,6 +432,7 @@ Several Spring profiles are available to make it easier to enable certain featur
 * \*\*\*\*[**management**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-management.yml): enables the Spring management endpoints
 * \*\*\*\*[**h2**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-h2.yml): enables hypersonic in-memory SQL database
 * \*\*\*\*[**postgres**](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/application-postgres.yml)**:** enables postgres driver with defaults \(must override url, username, pw\)
+* \*\*\*\*[**wallet-mode**](https://github.com/interledger4j/ilpv4-connector/blob/master/connector-server/src/main/resources/application-wallet-mode.yml): enables an SPSP server with local packet fulfillment. 
 
 A complete list of profiles can be found [here](https://github.com/interledger4j/ilpv4-connector/tree/master/connector-server/src/main/resources/).
 
