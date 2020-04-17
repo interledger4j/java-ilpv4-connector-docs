@@ -41,7 +41,7 @@ If you already have a Postgres database and Redis cache running, skip this secti
 To start a Postgres database, run:
 
 ```text
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword POSTGRES_DB=connector -d postgres
+docker run --name connector-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=connector -d postgres
 ```
 
 {% hint style="danger" %}
