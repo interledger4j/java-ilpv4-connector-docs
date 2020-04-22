@@ -4,7 +4,7 @@ description: A Java implementation of an Interledger Connector supporting ILPv4.
 
 # Java Connector
 
-This site contains documentation for the Java implementation of an Interledger Router.
+This site contains documentation for the Java implementation of an Interledger Connector.
 
 **Github project source code**: [https://github.com/interledger4j/ilpv4-connector](https://github.com/interledger4j/ilpv4-connector)  
 **Docs source code**: [https://github.com/interledger4j/java-ilpv4-connector-docs](https://github.com/interledger4j/java-ilpv4-connector-docs)  

@@ -1,7 +1,7 @@
 ---
 description: >-
   This page details how ILP destination address prefixes are handled by the
-  Router when it encounters a Prepare packet.
+  Connector when it encounters a Prepare packet.
 ---
 
 # Destination Address Handling
@@ -10,7 +10,7 @@ description: >-
 
 Every ILPv4 `Prepare` packet has a destination address that indicates where a packet should ultimately be delivered. These addresses MUST always conform to [IL-RFC-15](https://github.com/interledger/rfcs/blob/master/0015-ilp-addresses) and may begin with one of several valid address-prefixes. 
 
-Each of these prefixes has special meaning, and is handled by the Router in slightly different ways, as described in the following chart.
+Each of these prefixes has special meaning, and is handled by the Connector in slightly different ways, as described in the following chart.
 
 | Address Prefix | System Applicability | Purpose | Connector Handling | Accepts External Packets | Forwards Out of Connector |
 | :---: | :---: | :---: | :---: | :---: | :---: |

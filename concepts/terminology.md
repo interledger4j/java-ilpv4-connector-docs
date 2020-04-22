@@ -49,5 +49,5 @@ A connection between two peers, involving a single account, where ILPv4 packets 
 Any entity that has agreed to exchange Interledger packets with another entity. This sometimes refers to two individuals who share an account. However, this can also refer to software programs that are connected to each other in a peering relationship. See **Peer Node** for more details.
 
 **Peer Node**  
-An Interledger sender, router, or receiver that has an accounting relationship with another server.
+An Interledger sender, connector, or receiver that has an accounting relationship with another server.
 

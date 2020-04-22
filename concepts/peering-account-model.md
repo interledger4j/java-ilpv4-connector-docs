@@ -1,28 +1,28 @@
 ---
 description: >-
-  Interledger Routers track peer relationships using a concept called an
+  Interledger Connectors track peer relationships using a concept called an
   Account.
 ---
 
 # Account Model
 
-Router Accounts have two primary functions. 
+Connector Accounts have two primary functions. 
 
 The first is to track a debt position, denominated in a single fungible asset, between two Interledger parties \(read more about this in [Balance Tracking](balance-tracking.md)\). 
 
 The second purpose is to provide a conduit for exchanging ILP packets. When chained together to form a payment path, these relationships can enable value transfer across the Interledger.
 
-When two Interledger nodes \(two ILP Routers, for example\) enter into an account arrangement \(sometimes called a Peering Relationship\), each Router will construct a unique identifier to track the relationship for itself. This implementation calls this identifier an `accoundId`.
+When two Interledger nodes \(two ILP Connectors, for example\) enter into an account arrangement \(sometimes called a Peering Relationship\), each Connector will construct a unique identifier to track the relationship for itself. This implementation calls this identifier an `accoundId`.
 
 Using account Ids, a Connector can correlate each details about the relationship using three different primitives \(described below\). 
 
-This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single domain-model object would likely not scale well for all use-cases that a Router must fulfill.
+This design is preferred over a single `Account` object because Connectors must be able to support ultra-high packet throughput, and using a single domain-model object would likely not scale well for all use-cases that a Connector must fulfill.
 
 ## Account Settings
 
 The [`AccountsSettings`](https://github.com/interledger4j/ilpv4-connector/blob/master/connector-accounts/src/main/java/org/interledger/connector/accounts/AccountSettings.java) object tracks all information necessary for the Connector to _describe_ an account. This includes minimum and balance thresholds, link information, and information about about the underlying asset for the account \(i.e., the asset `code` and `scale`\).
 
-This data is typically stored in a durable data-store, and loaded at various times in a performant yet as-needed basis by the Router. In general, account information is highly cacheable using local-caches with relatively short timeouts \(which works well-enough across a cluster\) so this type of information can easily live in a typical RDBMS. See [Connector Persistence](../ilpv4-connector-persistence.md) for more details around supported datastores.
+This data is typically stored in a durable data-store, and loaded at various times in a performant yet as-needed basis by the Connector. In general, account information is highly cacheable using local-caches with relatively short timeouts \(which works well-enough across a cluster\) so this type of information can easily live in a typical RDBMS. See [Connector Persistence](../ilpv4-connector-persistence.md) for more details around supported datastores.
 
 ## Balance Tracking
 

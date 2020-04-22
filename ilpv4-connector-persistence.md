@@ -1,7 +1,7 @@
 ---
 description: >-
   This page describes available persistence stores and how to configure the
-  Router to operate using them.
+  Connector to operate using them.
 ---
 
 # Persistence Initialization
@@ -20,7 +20,7 @@ This page details how to initialize a given persistence store for usage by the C
 
 ## Postgresql
 
-This section details how to use Postgresql as the underlying Router datastore.
+This section details how to use Postgresql as the underlying Connector datastore.
 
 {% hint style="success" %}
 This section assumes that you have created a database named `connector`inside of your Postgres installation. Note that this naming is used as an example only -- you can choose _any_ database name.
