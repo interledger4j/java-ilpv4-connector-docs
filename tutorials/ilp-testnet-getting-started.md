@@ -97,11 +97,11 @@ This request will return JSON similar to the JSON below, representing 1,000 XRP 
 ```
 
 {% hint style="info" %}
-**`originalAmount`** is the amount that you wanted to send.
+Note the meaning of the following fields:
 
-**`amountDelivered`** is the amount your friend actually received.
-
-**`amountSent`** is the amount that actually got sent to your friend.
+**originalAmount**: the amount that you wanted to send.  
+**amountDelivered**:  the amount your friend actually received.  
+**amountSent**: is the amount that actually got sent to your friend.
 {% endhint %}
 
 ## 6. Get Paid
