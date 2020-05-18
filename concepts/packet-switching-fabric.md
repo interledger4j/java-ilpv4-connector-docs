@@ -10,7 +10,7 @@ description: >-
 
 This implementation relies upon a packet-switching fabric that applies business logic to each packet in order to ensure that packets meet various preconditions and can be properly routed. At a high level, this fabric looks like this:
 
-![Packets enter the switching fabric on an inbound link, are processed, and then forwarded out on an outbound link. Responses traverse the fabric in the opposite direction.](../.gitbook/assets/image%20%281%29.png)
+![Packets enter the switching fabric on an inbound link, are processed, and then forwarded out on an outbound link. Responses traverse the fabric in the opposite direction.](../.gitbook/assets/image%20%283%29.png)
 
 ### Packet Filters
 
@@ -20,7 +20,7 @@ A packet filter applies business logic to a particular ILPv4 Prepare packet. The
 
 Packet filters are assembled together into a filter chain that is applied to every incoming packet. This implementation has a filter chain that looks like this:
 
-![Each incoming ILPv4 packet is &quot;filtered&quot; according to the business logic of each Packet Filter.](../.gitbook/assets/image%20%283%29.png)
+![Each incoming ILPv4 packet is &quot;filtered&quot; according to the business logic of each Packet Filter.](../.gitbook/assets/image%20%281%29.png)
 
 ### Link Filters
 
@@ -32,5 +32,5 @@ Like Packet Filters, the contract allows the filter to modify an in-flight packe
 
 Link filters are assembled together into a filter chain that is applied to every outgoing packet. This implementation has a filter chain that looks like this:
 
-![Each outgoing ILPv4 packet is &quot;filtered&quot; according to the business logic of each Link Filter.](../.gitbook/assets/image%20%284%29.png)
+![Each outgoing ILPv4 packet is &quot;filtered&quot; according to the business logic of each Link Filter.](../.gitbook/assets/image%20%282%29%20%281%29.png)
 

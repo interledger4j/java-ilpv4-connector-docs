@@ -41,7 +41,7 @@ To see how much money is in your account, try the following call:
 
 ```bash
 curl --location 
---request GET 'https://xpring.io/hermes-rest/accounts/{your-account-id}/balance' \
+--request GET 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/balance' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}'
 ```
@@ -71,7 +71,7 @@ Spread the love to a friend by making a payment to a payment pointer. In this ca
 
 ```bash
 curl --location \
---request POST 'https://xpring.io/hermes-rest/accounts/{your-account-id}/pay' \
+--request POST 'https://xpring.io/portal/ilp/hermes/accounts/{your-account-id}/pay' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer {auth_token}' \
