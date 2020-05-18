@@ -77,7 +77,7 @@ curl --location \
 --header 'Authorization: Bearer {auth_token}' \
 --data-raw '{
   "amount": "1000000",
-  "destinationPaymentPointer": "$rafiki.money/p/dfuelling"
+  "destinationPaymentPointer": "$rafiki.money/p/{receiver-email-address}"
 }'
 ```
 
