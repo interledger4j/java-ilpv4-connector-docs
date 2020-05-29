@@ -10,6 +10,10 @@ This site contains documentation for the Java implementation of an Interledger C
 **Docs source code**: [https://github.com/interledger4j/java-ilpv4-connector-docs](https://github.com/interledger4j/java-ilpv4-connector-docs)  
 **Documentation Website**: [https://connector.interledger4j.dev/](https://connector.interledger4j.dev/)
 
+## Feature request?
+
+Have an idea or a feature request for the ILP Connector? We'd love to hear about it! Submit your ideas/requests/etc on [https://feedback.interledger4j.dev](https://feedback.interledger4j.dev).
+
 ## Overview
 
 This implementation is a high-performance Interledger Connector that supports _many_ incoming and outgoing connections that are tied together by an ILPv4 packet-switching fabric. 
