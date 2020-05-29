@@ -12,7 +12,7 @@ This site contains documentation for the Java implementation of an Interledger C
 
 ## Feature request?
 
-Have an idea or a feature request for the ILP Connector? We'd love to hear about it! Submit your ideas/requests/etc on [https://feedback.interledger4j.dev](https://feedback.interledger4j.dev).
+Have an idea or a feature request for the ILP Connector? We'd love to hear about it! Submit your ideas/requests/etc on [feedback.interledger4j.dev](https://feedback.interledger4j.dev).
 
 ## Overview
 
