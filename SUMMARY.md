@@ -16,11 +16,15 @@
 
 ## Connector Configuration
 
+---
+
 * [Connector Configuration Properties](configuration.md)
 * [Persistence Initialization](ilpv4-connector-persistence.md)
 * [Local STREAM Packet Termination](local-stream-packet-termination.md)
 
 ## Connector Operation
+
+---
 
 * [Running with Docker](running-with-docker.md)
 * [Peering: ILP-over-HTTP](peering-ilp-over-http.md)

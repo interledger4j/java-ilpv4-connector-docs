@@ -70,7 +70,7 @@ For example, here is how to configure and run the connector using separate env a
 docker run -p 8080:8080 -e spring.profiles.active=insecure,postgres,migrate -e redis.host=host.docker.internal -e spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/connector -e spring.datasource.username=postgres -e spring.datasource.password=postgres -it interledger4j/java-ilpv4-connector:nightly
 ```
 
-Or more conveniently, we can put all the same args into a file named connector.env with the following contents:
+Or more conveniently, we can put all the same args into a file named `connector.env` with the following contents:
 
 ```text
 spring.profiles.active=insecure,postgres,migrate
